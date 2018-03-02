@@ -49,5 +49,6 @@ crashlytics-build.properties
 fabric.properties
 
 # Custom Design
+.idea/
 *.iml
 target/
