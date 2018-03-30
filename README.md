@@ -21,3 +21,11 @@
 12. **Late rollcall**
 13. **Homework system**
 	distribution and submit
+	
+###各模块对应的服务名与端口号
+| File Name       | Service Name    |  Port |
+| --------   | :-----:   | :----: |
+| knowbox-server-discovery |      |   8100    |
+| knowbox-hbase-client  | hbase-client|   8110    |
+| knowbox-common-service| common-service |  8120    |
+|knowbox-router-gateway|service-zuul|8130|
