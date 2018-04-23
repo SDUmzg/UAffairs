@@ -12,5 +12,7 @@
     <module>UAffairs-hbase-client</module>
     <module>UAffairs-common-service</module>
     <module>UAffairs-router-gateway</module>
+    <module>UAffairs-config-center</module>
+    <module>UAffairs-dynamic-datasources</module>
   </modules>
 </project>

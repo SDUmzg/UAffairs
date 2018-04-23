@@ -1,0 +1,6 @@
+mysql :
+create table student( id int(11) primary key auto_increment, name varchar(30), sex varchar(10), class varchar(10), phone varchar(30));
+
+insert into student(name,sex,class,phone)values('Tom','boy','1','17865169606');
+
+insert into student(name,sex,class,phone)values('Elina','girl','2','17862857678');

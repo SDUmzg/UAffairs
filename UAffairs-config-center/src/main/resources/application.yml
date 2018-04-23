@@ -1,0 +1,20 @@
+server:
+  port: 8110
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8100/eureka/
+
+spring:
+  application:
+    name: config-server
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://gitee.com/SDUxiaoma/UAffairsConfig
+          searchPaths: uconfig
+          username: 1666188122@qq.com
+          password: mzg...8535933570
+      label: master
+
