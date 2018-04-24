@@ -96,7 +96,12 @@ create table subscription(
 */
 DROP TABLE IF EXISTS subscription_config;
 create table subscription_config(
-
+  user int(11) NOT NULL PRIMARY KEY ,
+  action JSON NOT NULL ,
+  is_able boolean NOT NULL DEFAULT '1' COMMENT '0:失效  1：有效',
+  description VARCHAR(100) COMMENT '描述',
+  create_time TIMESTAMP NOT NULL DEFAULT current_timestamp COMMENT '创建时间',
+  updateTime TIMESTAMP NOT NULL DEFAULT current_timestamp ON UPDATE current_timestamp COMMENT '更新时间'
 )
 
 

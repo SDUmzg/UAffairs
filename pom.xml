@@ -14,5 +14,10 @@
     <module>UAffairs-router-gateway</module>
     <module>UAffairs-config-center</module>
     <module>UAffairs-dynamic-datasources</module>
+    <module>UAffairs-febs-client</module>
+    <module>UAffairs-xxlsso-core</module>
+    <module>UAffairs-xxlsso-server</module>
+    <module>UAffairs-web-client</module>
+
   </modules>
 </project>
