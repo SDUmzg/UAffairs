@@ -30,4 +30,8 @@
 | uaffairs-hbase-client     | hbase-client     |   8120    |
 | uaffairs-common-service   | common-service   |   8130    |
 | uaffairs-router-gateway   | service-zuul     |   8140    |
+| uaffairs-febs-client      | febs-client      |   8150    |
+| uaffairs-xxlsso-server    | xxlsso-server    |   8160    |
+| uaffairs-web-client       | xxlsso-web       |   8170    |
+
 

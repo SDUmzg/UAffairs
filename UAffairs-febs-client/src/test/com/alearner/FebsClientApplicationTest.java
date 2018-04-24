@@ -17,8 +17,8 @@ import java.util.Date;
  * @create: 2018-04-23 20:42
  **/
 @RunWith(SpringJUnit4ClassRunner.class)
-@SpringBootTest(classes = Application.class)
-public class ApplicationTest {
+@SpringBootTest(classes = FebsClientApplication.class)
+public class FebsClientApplicationTest {
 
 
     @Autowired

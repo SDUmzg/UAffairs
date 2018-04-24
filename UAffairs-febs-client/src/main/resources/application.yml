@@ -1,9 +1,17 @@
 server:
-  port: 8090
-  tomcat:
-    uri-encoding: utf-8
+  port: 8150
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8100/eureka/
     
 spring:
+  application:
+    name: febs-client
+  ## 开发/测试/生产环境分别对应dev/test/prod，可以自由定义
+  profiles:
+    active: dev
+
   datasource:
     druid:
       # 数据库访问配置, 使用druid数据源 
@@ -95,7 +103,7 @@ pagehelper:
   
 logging:
   level:
-    cc:
-      mrbird:
+    com:
+      alearner:
         system:
           dao: warn

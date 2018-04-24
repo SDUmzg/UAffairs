@@ -3,15 +3,17 @@ package com.alearner;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 @SpringBootApplication
+@EnableDiscoveryClient
 @EnableTransactionManagement
 @MapperScan("com.alearner.*.dao")
-public class Application {
+public class FebsClientApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(Application.class, args);
+		SpringApplication.run(FebsClientApplication.class, args);
 		System.out.println("complete");
 	}
 }

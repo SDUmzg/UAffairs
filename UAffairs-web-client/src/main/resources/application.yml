@@ -1,0 +1,38 @@
+server:
+  port: 8170
+#  context-path: /xxl-sso-web
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8100/eureka/
+
+spring:
+  application:
+    name: xxlsso-web
+  ## 开发/测试/生产环境分别对应dev/test/prod，可以自由定义
+  profiles:
+    active: dev
+
+  ### freemarker
+  freemarker:
+    request-context-attribute: request
+    cache: false
+  ### resource (default: /**  + classpath:/static/ )
+  mvc:
+    static-path-pattern: /static/**
+  resources:
+    static-locations: classpath:/static/
+
+xxl:
+  sso:
+    server: http://localhost:8160
+    logout:
+      path: /logout
+
+    redis:
+      address: 127.0.0.1:6379
+      password: 1666188122
+
+
+
+

@@ -1,0 +1,52 @@
+server:
+  port: 8160
+#  context-path: /xxl-sso-server
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8100/eureka/
+spring:
+  application:
+    name: xxlsso-server
+  ## 开发/测试/生产环境分别对应dev/test/prod，可以自由定义
+  profiles:
+    active: dev
+
+  ### freemarker
+  freemarker:
+    request-context-attribute: request
+    cache: false
+
+  ### resource (default: /**  + classpath:/static/ )
+  mvc:
+    static-path-pattern: /static/**
+  resources:
+    static-locations: classpath:/static/
+
+  ### jdbc
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/xxl-sso?useSSL=false
+    username: myroot
+    password: Mzg...8535933570
+    driver-class-name: com.mysql.jdbc.Driver
+    max-idle: 10
+    max-wait: 10000
+    min-idle: 5
+    initial-size: 5
+
+## mybatis
+mybatis:
+  mapper-locations: classpath:/mybatis-mapper/*Mapper.xml
+  type-aliases-package: com.xxl.sso.server.model
+
+### redis
+redis:
+  address: 127.0.0.1:6379
+  password: 1666188122
+
+
+
+
+
+
+
