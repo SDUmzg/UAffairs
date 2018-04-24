@@ -23,13 +23,14 @@
 	distribution and submit
 	
 ###各模块对应的服务名与端口号
-| File Name       | Service Name    |  Port |
-| --------   | --------   | --------|
-| uaffairs-server-discovery |      |   8100    |
-| uaffairs-config-center | config-server|8110|
-| uaffairs-hbase-client  | hbase-client|   8120    |
-| uaffairs-common-service| common-service |  8130    |
-| uaffairs-router-gateway| service-zuul|8140|
+
+| File Name                  | Service Name    |  Port        |
+| -------------              | -------------   | -------------|
+| uaffairs-server-discovery  |                 |   8100       |
+| uaffairs-config-center     | config-server   |   8110       |
+| uaffairs-hbase-client      | hbase-client    |   8120       |
+| uaffairs-common-service    | common-service  |   8130       |
+| uaffairs-router-gateway    | service-zuul    |   8140       |
 
 
 
