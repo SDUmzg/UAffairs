@@ -1,9 +1,9 @@
 server:
-  port: 8780
+  port: 8180
 eureka:
   client:
     serviceUrl:
-      defaultZone: http://localhost:8888/eureka/
+      defaultZone: http://localhost:8100/eureka/
 
 spring:
   application:
@@ -15,7 +15,7 @@ spring:
 datasource:
   #主库
   master:
-    url: jdbc:mysql://localhost:3306/testdb?useUnicode=true&characterEncoding=utf-8&useSSL=false
+    url: jdbc:mysql://localhost:3306/uaffairs?useUnicode=true&characterEncoding=utf-8&useSSL=false
     jdbcUrl: jdbc:mysql://localhost:3306/testdb?useUnicode=true&characterEncoding=utf-8&useSSL=false
     username: myroot
     password: Mzg...8535933570
@@ -34,4 +34,6 @@ mybatis:
   mapper-locations: classpath:mappers/*/*.xml
   type-aliases-package: com.alearner.entity.*
   check-config-location: true
-  config-location: classpath:mybatis-config.xml
+#  config-location: classpath:mybatis-config.xml
+  configuration:
+    map-underscore-to-camel-case: true

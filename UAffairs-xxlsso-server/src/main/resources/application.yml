@@ -25,7 +25,7 @@ spring:
 
   ### jdbc
   datasource:
-    url: jdbc:mysql://127.0.0.1:3306/xxl-sso?useSSL=false
+    url: jdbc:mysql://127.0.0.1:3306/uaffairs?useUnicode=true&characterEncoding=utf8&useSSL=false
     username: myroot
     password: Mzg...8535933570
     driver-class-name: com.mysql.jdbc.Driver
