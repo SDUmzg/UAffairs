@@ -100,9 +100,8 @@ create table u_teacher(
   description VARCHAR(100) COMMENT '描述',
   create_time TIMESTAMP NOT NULL DEFAULT current_timestamp COMMENT '创建时间',
   update_time TIMESTAMP NOT NULL DEFAULT current_timestamp ON UPDATE current_timestamp COMMENT '更新时间'
-
 );
-
+INSERT INTO u_teacher(id, u_id, name, sex, phone, email, id_card, college_id, role, status)VALUES (1,'100000','马老师','w','178651690000','malaoshi@163.com','371322199012030000',1,0,0);
 
 
 

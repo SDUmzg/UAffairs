@@ -1,6 +1,6 @@
 package com.alearner.controller;
 
-import com.alearner.modle.HelloModel;
+import com.alearner.modle.common.HelloModel;
 import com.alearner.modle.hbase.UserDto;
 import com.alearner.service.HelloService;
 import org.springframework.beans.factory.annotation.Autowired;

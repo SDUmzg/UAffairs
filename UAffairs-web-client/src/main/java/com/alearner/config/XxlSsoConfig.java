@@ -1,4 +1,4 @@
-package com.xxl.sso.sample.config;
+package com.alearner.config;
 
 import com.xxl.sso.core.conf.Conf;
 import com.xxl.sso.core.filter.XxlSsoFilter;

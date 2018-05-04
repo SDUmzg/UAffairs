@@ -23,7 +23,7 @@ public class CommonServiceApplication {
     }
 
     @Bean
-    @LoadBalanced
+//    @LoadBalanced
     RestTemplate restTemplate(){
         return new RestTemplate();
     }

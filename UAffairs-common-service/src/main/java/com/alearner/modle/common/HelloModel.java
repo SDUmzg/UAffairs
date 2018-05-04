@@ -1,4 +1,4 @@
-package com.alearner.modle;
+package com.alearner.modle.common;
 
 import lombok.Getter;
 import lombok.Setter;

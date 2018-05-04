@@ -1,4 +1,4 @@
-package com.xxl.sso.sample.controller;
+package com.alearner.controller;
 
 import com.xxl.sso.core.conf.Conf;
 import com.xxl.sso.core.entity.ReturnT;
@@ -16,7 +16,7 @@ import javax.servlet.http.HttpServletRequest;
 @Controller
 public class IndexController {
 
-    @RequestMapping("/")
+    @RequestMapping("/index")
     public String index(Model model, HttpServletRequest request) {
 
         XxlUser xxlUser = (XxlUser) request.getAttribute(Conf.SSO_USER);

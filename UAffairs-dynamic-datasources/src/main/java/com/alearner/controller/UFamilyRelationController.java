@@ -25,6 +25,7 @@ public class UFamilyRelationController {
     @Autowired
     private UFamilyRelationService uFamilyRelationService;
 
+
     @RequestMapping(value = "/getUFamilyRelationByStuId",method = RequestMethod.GET)
     public List<UFamilyRelation> getUFamilyRelationByStuId(@RequestParam(value = "stu_id") int stu_id){
         logger.info("访问controller层，方法 ：getUFamilyRelationByStuId  ，Param ： -  "+stu_id);
