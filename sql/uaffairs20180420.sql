@@ -67,8 +67,8 @@ INSERT INTO u_student(id,u_id,name,sex,phone,email,id_card,classes_id,role)VALUE
 INSERT INTO u_student(id,u_id,name,sex,phone,email,id_card,classes_id,role)VALUES (3,'201400301345','朱斯亮','m','17865169999','zhusiliang@163.com','371322199512030002',1,0);
 
 
-DROP TABLE IF EXISTS u_famile_relation;
-create table u_famile_relation(
+DROP TABLE IF EXISTS u_family_relation;
+create table u_family_relation(
   id int(11) AUTO_INCREMENT PRIMARY KEY COMMENT '编号',
   stu_id varchar(30) NOT NULL COMMENT '学生编号',
   name varchar(30) NOT NULL COMMENT '姓名',
@@ -81,8 +81,8 @@ create table u_famile_relation(
   update_time TIMESTAMP NOT NULL DEFAULT current_timestamp ON UPDATE current_timestamp COMMENT '更新时间'
 );
 
-INSERT INTO u_famile_relation(id, stu_id, name, phone, email, relation)VALUES (1,1,'马爸爸','17865160000','mababa@163.com','父亲');
-INSERT INTO u_famile_relation(id, stu_id, name, phone, email, relation)VALUES (2,1,'马妈妈','17865160000','mamama@163.com','母亲');
+INSERT INTO u_family_relation(id, stu_id, name, phone, email, relation)VALUES (1,1,'马爸爸','17865160000','mababa@163.com','父亲');
+INSERT INTO u_family_relation(id, stu_id, name, phone, email, relation)VALUES (2,1,'马妈妈','17865160000','mamama@163.com','母亲');
 
 DROP TABLE IF EXISTS  u_teacher;
 create table u_teacher(

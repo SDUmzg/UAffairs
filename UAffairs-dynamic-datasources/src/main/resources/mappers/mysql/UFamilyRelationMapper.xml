@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.alearner.mapper.mysql.UFamilyRelationMapper"><!--注意这里的地址-->
+    <select id="getUFamilyRelationByStuId"  parameterType="int"  resultType="com.alearner.entity.mysql.UFamilyRelation">
+        select * from u_family_relation where stu_id = #{stu_id} and able_status=true ;
+    </select>
+</mapper>

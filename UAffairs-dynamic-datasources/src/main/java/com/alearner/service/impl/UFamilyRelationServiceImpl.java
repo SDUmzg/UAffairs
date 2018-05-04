@@ -1,8 +1,8 @@
 package com.alearner.service.impl;
 
-import com.alearner.entity.mysql.UFamileRelation;
-import com.alearner.mapper.mysql.UFamileRelationMapper;
-import com.alearner.service.UFamileRelationService;
+import com.alearner.entity.mysql.UFamilyRelation;
+import com.alearner.mapper.mysql.UFamilyRelationMapper;
+import com.alearner.service.UFamilyRelationService;
 import com.alearner.util.DataSourceType;
 import com.alearner.util.MyDataSource;
 import org.slf4j.Logger;
@@ -18,18 +18,18 @@ import java.util.List;
  * @create: 2018-05-04 09:14
  **/
 @Service
-public class UFamileRelationServiceImpl implements UFamileRelationService{
+public class UFamilyRelationServiceImpl implements UFamilyRelationService {
 
     private Logger logger = LoggerFactory.getLogger(this.getClass());
 
     @Autowired
-    private UFamileRelationMapper uFamileRelationMapper;
+    private UFamilyRelationMapper uFamilyRelationMapper;
 
     @Override
     @MyDataSource(DataSourceType.Master)
-    public List<UFamileRelation> getUFamileRelationByStuId(int stu_id) {
-        logger.info("访问表 ：u_famile_relation ");
+    public List<UFamilyRelation> getUFamilyRelationByStuId(int stu_id) {
+        logger.info("访问表 ：u_family_relation ");
         logger.info("请求 server 层 ：getUFamileRelationByStuId() Param : stu_id - "+stu_id);
-        return uFamileRelationMapper.getUFamileRelationByStuId(stu_id);
+        return uFamilyRelationMapper.getUFamilyRelationByStuId(stu_id);
     }
 }

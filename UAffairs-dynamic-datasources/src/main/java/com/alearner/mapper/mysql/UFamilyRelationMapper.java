@@ -1,6 +1,6 @@
 package com.alearner.mapper.mysql;
 
-import com.alearner.entity.mysql.UFamileRelation;
+import com.alearner.entity.mysql.UFamilyRelation;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Component;
 
@@ -12,6 +12,6 @@ import java.util.List;
  * @create: 2018-05-04 09:09
  **/
 @Component
-public interface UFamileRelationMapper {
-    List<UFamileRelation> getUFamileRelationByStuId(@Param("stu_id")int stu_id);
+public interface UFamilyRelationMapper {
+    List<UFamilyRelation> getUFamilyRelationByStuId(@Param("stu_id")int stu_id);
 }

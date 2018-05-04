@@ -11,7 +11,7 @@ import lombok.Setter;
  **/
 @Setter
 @Getter
-public class UFamileRelation extends BaseModel{
+public class UFamilyRelation extends BaseModel{
     private int id;
     private String stuId;
     private String name;
