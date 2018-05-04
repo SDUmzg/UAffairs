@@ -1,4 +1,4 @@
-package com.alearner.entity;
+package com.alearner.entity.common;
 
 import lombok.Getter;
 import lombok.Setter;

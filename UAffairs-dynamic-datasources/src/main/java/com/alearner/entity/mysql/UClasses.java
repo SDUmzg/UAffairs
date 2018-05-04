@@ -1,6 +1,6 @@
 package com.alearner.entity.mysql;
 
-import com.alearner.entity.BaseModel;
+import com.alearner.entity.common.BaseModel;
 import lombok.Getter;
 import lombok.Setter;
 
