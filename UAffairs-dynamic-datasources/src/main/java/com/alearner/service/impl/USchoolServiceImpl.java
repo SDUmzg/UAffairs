@@ -29,6 +29,7 @@ public class USchoolServiceImpl implements USchoolService{
     @MyDataSource(DataSourceType.Master)
     public List<USchool> getUSchoolAll() {
         logger.info("访问表 ： u_school");
+        logger.info("访问Server层，请求方法：getUSchoolAll()");
         return uSchoolMapper.getUSchoolAll();
     }
 }

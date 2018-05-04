@@ -26,7 +26,8 @@ public class USsoUserEduServiceImpl implements USsoUserEduService{
     @Override
     @MyDataSource(DataSourceType.Master)
     public USsoUserEdu getUSsoUserEduById(int sso_id) {
-        logger.info("请求接口 ： uSsoUserEduMapper.getUSsoUserEduById(sso_id)");
+        logger.info("访问表: u_sso_user_edu");
+        logger.info("访问server层，请求接口 ： uSsoUserEduMapper.getUSsoUserEduById(sso_id)，Param ： sso_id - "+sso_id);
         return uSsoUserEduMapper.getUSsoUserEduById(sso_id);
     }
 }

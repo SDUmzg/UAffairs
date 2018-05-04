@@ -27,7 +27,8 @@ public class UStudentServiceImpl implements UStudentService {
     @Override
     @MyDataSource(DataSourceType.Master)
     public UStudent getUStudentById(int id) {
-        logger.info("请求接口 ： uStudentMapper.getUStudentById(id)");
+        logger.info("访问表 ： u_student");
+        logger.info("访问server，请求接口 ： uStudentMapper.getUStudentById(id)");
         return uStudentMapper.getUStudentById(id);
     }
 }

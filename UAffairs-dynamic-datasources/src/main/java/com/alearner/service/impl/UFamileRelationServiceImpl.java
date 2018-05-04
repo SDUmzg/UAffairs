@@ -28,6 +28,8 @@ public class UFamileRelationServiceImpl implements UFamileRelationService{
     @Override
     @MyDataSource(DataSourceType.Master)
     public List<UFamileRelation> getUFamileRelationByStuId(int stu_id) {
+        logger.info("访问表 ：u_famile_relation ");
+        logger.info("请求 server 层 ：getUFamileRelationByStuId() Param : stu_id - "+stu_id);
         return uFamileRelationMapper.getUFamileRelationByStuId(stu_id);
     }
 }
