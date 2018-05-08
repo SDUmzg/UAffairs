@@ -5,10 +5,7 @@ import com.alearner.service.UFamilyRelationService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -48,4 +45,11 @@ public class UFamilyRelationController {
         uFamilyRelationService.addUFamilyRelation(uFamilyRelation);
         return uFamilyRelation.getId();
     }
+
+    @RequestMapping(value = "/updateFamilyRelationList",method = RequestMethod.POST)
+    public long updateFamilyRelationList(@RequestBody List<UFamilyRelation> uFamilyRelationList){
+        logger.info("访问controller层，方法 ：updateFamilyRelationList  ，Param ：uFamilyRelationList.size -  "+uFamilyRelationList.size());
+        return uFamilyRelationService.updateFamilyRelationList(uFamilyRelationList);
+    }
+
 }

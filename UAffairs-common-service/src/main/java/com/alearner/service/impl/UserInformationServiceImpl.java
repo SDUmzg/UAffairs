@@ -9,11 +9,15 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.ParameterizedTypeReference;
-import org.springframework.http.HttpMethod;
+import org.springframework.http.*;
 import org.springframework.stereotype.Service;
+import org.springframework.util.LinkedMultiValueMap;
+import org.springframework.util.MultiValueMap;
 import org.springframework.web.client.RestTemplate;
 
 import java.util.List;
+
+import static org.springframework.http.MediaType.APPLICATION_JSON_UTF8;
 
 /**
  * @description:
@@ -61,5 +65,17 @@ public class UserInformationServiceImpl implements UserInformationService{
         String url = "http://dynamic-datasources/family-relation/addUFamilyRelation?stuId="+stuId+"&name="+name+"&phone="+phone+"&email="+email+"&relation="+relation;
         logger.info("请求连接 url ："+url);
         return  restTemplate.getForObject(url,Long.class);
+    }
+
+    @Override
+    public long updateFamilyRelationList(List<UFamilyRelation> uFamilyRelationList) {
+        String url = "http://dynamic-datasources/family-relation/updateFamilyRelationList";
+        logger.info("请求连接 url ："+url);
+
+        HttpHeaders headers = new HttpHeaders();
+        headers.setContentType(MediaType.APPLICATION_JSON_UTF8);
+        logger.info("request the url :"+url +"uFamilyRelationList.size()"+uFamilyRelationList.size());
+        HttpEntity<Object> requestEntity = new HttpEntity<Object>(uFamilyRelationList,headers);
+        return restTemplate.exchange(url, HttpMethod.POST, requestEntity, Long.class).getBody();
     }
 }

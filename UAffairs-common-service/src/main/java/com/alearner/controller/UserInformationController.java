@@ -9,10 +9,7 @@ import com.alearner.service.UserInformationService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -61,6 +58,14 @@ public class UserInformationController {
         logger.info("请求controller层，方法：addUFamilyRelation ,Param : stuId="+stuId+"&name="+name+"&phone="+phone+"&email="+email+"&relation="+relation);
         return userInformationService.addUFamilyRelation(stuId, name, phone, email, relation);
     }
+
+
+    @RequestMapping(value = "/updateFamilyRelationList",method = RequestMethod.POST)
+    public long updateFamilyRelationList(@RequestBody List<UFamilyRelation> uFamilyRelationList){
+        logger.info("请求controller层，方法：updateFamilyRelationList ,Param : uFamilyRelationList.size="+uFamilyRelationList.size());
+        return userInformationService.updateFamilyRelationList(uFamilyRelationList);
+    }
+
 
 
 }

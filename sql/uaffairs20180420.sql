@@ -169,5 +169,31 @@ CREATE TABLE u_sso_user_edu(
 INSERT INTO u_sso_user_edu(sso_id, edu_id, edu_type) VALUES(1,1,1);
 
 
+DROP TABLE IF EXISTS note_file;
+CREATE TABLE note_file(
+  id int(11) AUTO_INCREMENT PRIMARY KEY COMMENT '编号',
+  name varchar(50) NOT NULL COMMENT '文件或者便签名',
+  type varchar(20) NOT NULL COMMENT '文件类型',
+  subject varchar(200) NOT NULL COMMENT '主题',
+  store_tool tinyint(4) NOT NULL COMMENT '存储工具  0：mysql  1：postgresql',
+  store_id int(11) NOT NULL COMMENT '文件在mysql或postgresql中的存储的主键id',
+  able_status boolean NOT NULL DEFAULT '1' COMMENT '0:失效  1：有效',
+  description VARCHAR(100) COMMENT '描述',
+  create_time TIMESTAMP NOT NULL DEFAULT current_timestamp COMMENT '创建时间',
+  update_time TIMESTAMP NOT NULL DEFAULT current_timestamp ON UPDATE current_timestamp COMMENT '更新时间'
+);
 
+
+DROP TABLE IF EXISTS notes;
+CREATE TABLE notes(
+  id int(11) AUTO_INCREMENT PRIMARY KEY COMMENT '编号',
+  subject varchar(200) NOT NULL COMMENT '主题',
+  content text NOT NULL COMMENT '内容',
+  owner_id int(11) NOT NULL COMMENT '文件所有者id',
+  owner_type tinyint(4) NOT NULL COMMENT '文件所有者的类型',
+  able_status boolean NOT NULL DEFAULT '1' COMMENT '0:失效  1：有效',
+  description VARCHAR(100) COMMENT '描述',
+  create_time TIMESTAMP NOT NULL DEFAULT current_timestamp COMMENT '创建时间',
+  update_time TIMESTAMP NOT NULL DEFAULT current_timestamp ON UPDATE current_timestamp COMMENT '更新时间'
+);
 

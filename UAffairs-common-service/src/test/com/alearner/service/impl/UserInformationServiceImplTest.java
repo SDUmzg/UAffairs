@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -54,5 +55,31 @@ public class UserInformationServiceImplTest {
     public void addUFamilyRelation(){
         long id = userInformationService.addUFamilyRelation("1","马舅舅","17865160000","majiujiu@163.com","舅舅");
         System.err.println(id);
+    }
+
+    @Test
+    public void updateFamilyRelationList() {
+        List<UFamilyRelation> uFamilyRelationList = new ArrayList<>();
+        UFamilyRelation uFamilyRelation1 = new UFamilyRelation();
+        uFamilyRelation1.setId(3);
+        uFamilyRelation1.setStuId("1");
+        uFamilyRelation1.setName("马狗子");
+        uFamilyRelation1.setPhone("17865169000");
+        uFamilyRelation1.setEmail("mydog1@163.com");
+        uFamilyRelation1.setRelation("配偶");
+
+        UFamilyRelation uFamilyRelation2 = new UFamilyRelation();
+        uFamilyRelation2.setId(4);
+        uFamilyRelation2.setStuId("1");
+        uFamilyRelation2.setName("马舅舅");
+        uFamilyRelation2.setPhone("17865169000");
+        uFamilyRelation2.setEmail("majiujiu1@163.com");
+        uFamilyRelation2.setRelation("舅舅");
+
+        uFamilyRelationList.add(uFamilyRelation1);
+        uFamilyRelationList.add(uFamilyRelation2);
+
+        long row = userInformationService.updateFamilyRelationList(uFamilyRelationList);
+        System.err.println(row);
     }
 }

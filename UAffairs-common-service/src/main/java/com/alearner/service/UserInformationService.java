@@ -14,20 +14,24 @@ import java.util.List;
  **/
 public interface UserInformationService {
 
-    //USsoUserEduController in dynamic-datasources
+    /*USsoUserEduController in dynamic-datasources*/
     USsoUserEdu getUSsoUserEduById(int sso_id);
 
 
-    //UStudentController in dynamic-datasources
+    /*UStudentController in dynamic-datasources*/
     UStudent getUStudentById(int id);
 
 
-    //UTeacherController in dynamic-datasources
+    /*UTeacherController in dynamic-datasources*/
     UTeacher getUTeacherById(int id);
 
-    //UFamilyRelationController in dynamic-datasources
+
+    /*UFamilyRelationController in dynamic-datasources*/
     List<UFamilyRelation> getUFamilyRelationByStuId(int stu_id);
 
     long addUFamilyRelation(String stuId, String name, String phone, String email, String relation);
 
-}
+    long updateFamilyRelationList(List<UFamilyRelation> uFamilyRelationList);
+
+
+    }
