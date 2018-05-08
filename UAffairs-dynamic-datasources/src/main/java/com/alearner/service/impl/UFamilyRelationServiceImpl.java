@@ -40,4 +40,12 @@ public class UFamilyRelationServiceImpl implements UFamilyRelationService {
         logger.info("请求 server 层 ：addUFamilyRelation() Param : uFamilyRelation - "+uFamilyRelation.toString());
         return uFamilyRelationMapper.addUFamilyRelation(uFamilyRelation);
     }
+
+    @Override
+    @MyDataSource(DataSourceType.Master)
+    public long updateFamilyRelationList(List<UFamilyRelation> uFamilyRelationList) {
+        logger.info("访问表 ：u_family_relation ");
+        logger.info("请求 server 层 ：updateFamilyRelationList() Param : uFamilyRelationList.size - "+uFamilyRelationList.size());
+        return uFamilyRelationMapper.updateFamilyRelationList(uFamilyRelationList);
+    }
 }

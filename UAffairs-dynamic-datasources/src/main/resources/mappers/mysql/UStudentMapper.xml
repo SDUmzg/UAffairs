@@ -3,7 +3,23 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.alearner.mapper.mysql.UStudentMapper"><!--注意这里的地址-->
+    <!--通过id查找学生信息-->
     <select id="getUStudentById"  parameterType="int"  resultType="com.alearner.entity.mysql.UStudent">
         select * from u_student where id = #{id} and able_status=true ;
     </select>
+
+    <!--更新学生信息-->
+    <update id="updateStudentById" parameterType="com.alearner.entity.mysql.UStudent">
+        update u_student
+        set u_id = #{uId},
+            name = #{name},
+            sex = #{sex},
+            phone = #{phone},
+            email = #{email},
+            id_card = #{idCard},
+            classes_id = #{classesId},
+            role = #{role},
+            status = #{status}
+        where id = #{id}
+    </update>
 </mapper>

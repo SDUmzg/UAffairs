@@ -13,5 +13,5 @@ import org.springframework.stereotype.Component;
 @Component
 public interface UStudentMapper {
     UStudent getUStudentById(@Param("id")int id);
-    long updateStudentbyId(Student student);
+    long updateStudentById(Student student);
 }
