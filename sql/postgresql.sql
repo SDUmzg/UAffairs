@@ -5,12 +5,3 @@ create table uaffairs_files(
   content bytea ,
   operate_time TIMESTAMP
 );
-
-
-
-
-
-/*- id                   serial
-- file_name        varchar(100)
-- content           bytea
-- operate_time   timestamp*/
