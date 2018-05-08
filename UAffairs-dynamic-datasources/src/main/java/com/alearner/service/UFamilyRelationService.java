@@ -11,4 +11,5 @@ import java.util.List;
  **/
 public interface UFamilyRelationService {
     List<UFamilyRelation> getUFamilyRelationByStuId(int stu_id);
+    long addUFamilyRelation(UFamilyRelation uFamilyRelation);
 }

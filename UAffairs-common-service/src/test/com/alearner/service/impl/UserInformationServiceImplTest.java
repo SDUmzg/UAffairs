@@ -49,4 +49,10 @@ public class UserInformationServiceImplTest {
             System.err.println(uFamilyRelation.getName());
         }
     }
+
+    @Test
+    public void addUFamilyRelation(){
+        long id = userInformationService.addUFamilyRelation("1","马舅舅","17865160000","majiujiu@163.com","舅舅");
+        System.err.println(id);
+    }
 }

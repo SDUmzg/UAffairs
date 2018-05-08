@@ -10,6 +10,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -48,6 +49,17 @@ public class UserInformationController {
             userInformation=new UserInformation(uSsoUserEdu,null,uStudent,uFamilyRelationList);
         }
         return userInformation;
+    }
+
+
+    @RequestMapping(value = "/addUFamilyRelation",method = RequestMethod.GET)
+    public long addUFamilyRelation(@RequestParam(value = "stuId") String stuId,
+                                   @RequestParam(value = "name")String name,
+                                   @RequestParam(value = "phone")String phone,
+                                   @RequestParam(value = "email")String email,
+                                   @RequestParam(value = "relation") String relation){
+        logger.info("请求controller层，方法：addUFamilyRelation ,Param : stuId="+stuId+"&name="+name+"&phone="+phone+"&email="+email+"&relation="+relation);
+        return userInformationService.addUFamilyRelation(stuId, name, phone, email, relation);
     }
 
 

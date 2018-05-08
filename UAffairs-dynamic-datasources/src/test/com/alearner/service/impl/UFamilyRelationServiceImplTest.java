@@ -29,4 +29,17 @@ public class UFamilyRelationServiceImplTest {
             System.err.println(uFamilyRelation.getName());
         }
     }
+
+    @Test
+    public void addUFamilyRelation(){
+        UFamilyRelation uFamilyRelation = new UFamilyRelation();
+        uFamilyRelation.setStuId("1");
+        uFamilyRelation.setName("狗子");
+        uFamilyRelation.setPhone("17865169000");
+        uFamilyRelation.setEmail("dog@163.com");
+        uFamilyRelation.setRelation("配偶");
+        long id = uFamilyRelationService.addUFamilyRelation(uFamilyRelation);
+        System.err.println("id="+id);
+        System.err.println(uFamilyRelation.getId());
+    }
 }

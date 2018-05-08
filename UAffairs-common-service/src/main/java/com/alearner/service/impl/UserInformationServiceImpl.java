@@ -55,4 +55,11 @@ public class UserInformationServiceImpl implements UserInformationService{
         logger.info("请求连接 url ："+url);
         return restTemplate.exchange(url, HttpMethod.GET,null,new ParameterizedTypeReference<List<UFamilyRelation>>(){}).getBody();
     }
+
+    @Override
+    public long addUFamilyRelation(String stuId, String name, String phone, String email, String relation) {
+        String url = "http://dynamic-datasources/family-relation/addUFamilyRelation?stuId="+stuId+"&name="+name+"&phone="+phone+"&email="+email+"&relation="+relation;
+        logger.info("请求连接 url ："+url);
+        return  restTemplate.getForObject(url,Long.class);
+    }
 }

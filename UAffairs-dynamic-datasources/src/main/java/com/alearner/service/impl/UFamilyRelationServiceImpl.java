@@ -32,4 +32,12 @@ public class UFamilyRelationServiceImpl implements UFamilyRelationService {
         logger.info("请求 server 层 ：getUFamileRelationByStuId() Param : stu_id - "+stu_id);
         return uFamilyRelationMapper.getUFamilyRelationByStuId(stu_id);
     }
+
+    @Override
+    @MyDataSource(DataSourceType.Master)
+    public long addUFamilyRelation(UFamilyRelation uFamilyRelation) {
+        logger.info("访问表 ：u_family_relation ");
+        logger.info("请求 server 层 ：addUFamilyRelation() Param : uFamilyRelation - "+uFamilyRelation.toString());
+        return uFamilyRelationMapper.addUFamilyRelation(uFamilyRelation);
+    }
 }

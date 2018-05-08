@@ -31,4 +31,21 @@ public class UFamilyRelationController {
         logger.info("访问controller层，方法 ：getUFamilyRelationByStuId  ，Param ： -  "+stu_id);
         return uFamilyRelationService.getUFamilyRelationByStuId(stu_id);
     }
+
+    @RequestMapping(value = "/addUFamilyRelation",method = RequestMethod.GET)
+    public long addUFamilyRelation(@RequestParam(value = "stuId") String stuId,
+                                   @RequestParam(value = "name")String name,
+                                   @RequestParam(value = "phone")String phone,
+                                   @RequestParam(value = "email")String email,
+                                   @RequestParam(value = "relation") String relation){
+        UFamilyRelation uFamilyRelation = new UFamilyRelation();
+        uFamilyRelation.setStuId(stuId);
+        uFamilyRelation.setName(name);
+        uFamilyRelation.setPhone(phone);
+        uFamilyRelation.setEmail(email);
+        uFamilyRelation.setRelation(relation);
+        logger.info("访问controller层，方法 ：addUFamilyRelation  ，Param ： -  "+uFamilyRelation.toString());
+        uFamilyRelationService.addUFamilyRelation(uFamilyRelation);
+        return uFamilyRelation.getId();
+    }
 }

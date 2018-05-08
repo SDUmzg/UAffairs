@@ -6,4 +6,8 @@
     <select id="getUFamilyRelationByStuId"  parameterType="int"  resultType="com.alearner.entity.mysql.UFamilyRelation">
         select * from u_family_relation where stu_id = #{stu_id} and able_status=true ;
     </select>
+
+    <insert id="addUFamilyRelation" useGeneratedKeys="true" keyProperty="id" parameterType="com.alearner.entity.mysql.UFamilyRelation">
+        insert into u_family_relation(stu_id,name,phone,email,relation) values (#{stuId},#{name},#{phone},#{email},#{relation})
+    </insert>
 </mapper>

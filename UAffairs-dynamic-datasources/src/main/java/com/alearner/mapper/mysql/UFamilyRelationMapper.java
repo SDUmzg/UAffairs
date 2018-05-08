@@ -14,4 +14,5 @@ import java.util.List;
 @Component
 public interface UFamilyRelationMapper {
     List<UFamilyRelation> getUFamilyRelationByStuId(@Param("stu_id")int stu_id);
+    long addUFamilyRelation(UFamilyRelation uFamilyRelation);
 }

@@ -55,7 +55,7 @@ create table u_student(
   id_card varchar(30) COMMENT '身份证号',
   classes_id int(11) COMMENT '所在班级的id',
   role tinyint(4)  DEFAULT '0' COMMENT '角色  0:普通    1：管理员',
-  status tinyint(4) DEFAULT '0' COMMENT '状态： 0：正常  1：休学  2：退学',
+  status tinyint(4) DEFAULT '0' COMMENT '状态： 0：正常  1：休学  2：退学 3：已毕业',
   able_status boolean NOT NULL DEFAULT '1' COMMENT '0:失效  1：有效',
   description VARCHAR(100) COMMENT '描述',
   create_time TIMESTAMP NOT NULL DEFAULT current_timestamp COMMENT '创建时间',

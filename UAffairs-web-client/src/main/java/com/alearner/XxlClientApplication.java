@@ -19,7 +19,7 @@ public class XxlClientApplication {
 	}
 
 	@Bean
-//	@LoadBalanced
+	@LoadBalanced
 	RestTemplate restTemplate(){
 		return new RestTemplate();
 	}

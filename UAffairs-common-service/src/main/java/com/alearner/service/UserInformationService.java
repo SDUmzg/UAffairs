@@ -28,4 +28,6 @@ public interface UserInformationService {
     //UFamilyRelationController in dynamic-datasources
     List<UFamilyRelation> getUFamilyRelationByStuId(int stu_id);
 
+    long addUFamilyRelation(String stuId, String name, String phone, String email, String relation);
+
 }
