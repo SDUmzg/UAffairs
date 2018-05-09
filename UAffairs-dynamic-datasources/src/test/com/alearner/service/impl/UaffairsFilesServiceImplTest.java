@@ -4,7 +4,6 @@ import com.alearner.service.UaffairsFilesService;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import static org.junit.Assert.*;
 
 /**
  * @description:
@@ -18,7 +17,7 @@ public class UaffairsFilesServiceImplTest {
 
     @Test
     public void addUaffairsFilesMapper() {
-        
+
     }
 
     @Test

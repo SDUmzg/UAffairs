@@ -9,6 +9,6 @@ import org.apache.ibatis.annotations.Param;
  * @create: 2018-05-08 18:05
  **/
 public interface UaffairsFilesService {
-    long addUaffairsFilesMapper(UaffairsFiles uaffairsFiles);
+    long addUaffairsFiles(UaffairsFiles uaffairsFiles);
     UaffairsFiles getUaffairsFilesById(@Param("id")int id);
 }

@@ -23,7 +23,7 @@ public class UaffairsFilesServiceImpl implements UaffairsFilesService {
 
     @Override
     @MyDataSource(DataSourceType.Slave)
-    public long addUaffairsFilesMapper(UaffairsFiles uaffairsFiles) {
+    public long addUaffairsFiles(UaffairsFiles uaffairsFiles) {
         logger.info("访问postgresql库");
         logger.info("访问表 uaffairs_files");
         logger.info("访问 server层 ， 方法 ： addUaffairsFilesMapper(UaffairsFiles uaffairsFiles)");
