@@ -11,6 +11,7 @@ import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.MediaType;
+import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
 import java.util.List;
@@ -20,6 +21,7 @@ import java.util.List;
  * @author: MZG
  * @create: 2018-05-09 14:48
  **/
+@Service
 public class UaffairsFilesServiceImpl implements UaffairsFilesService{
 
     private Logger logger = LoggerFactory.getLogger(this.getClass());
@@ -29,7 +31,7 @@ public class UaffairsFilesServiceImpl implements UaffairsFilesService{
 
 
     @Override
-    public long addUaffairsFilesMapper(UaffairsFiles uaffairsFiles) {
+    public long addUaffairsFiles(UaffairsFiles uaffairsFiles) {
         String url = "http://dynamic-datasources/fileUpload/addUaffairsFiles";
         logger.info("请求连接 url ："+url);
         logger.info("文件名称 ："+ uaffairsFiles.getFileName());

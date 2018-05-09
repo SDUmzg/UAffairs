@@ -8,7 +8,7 @@ import com.alearner.modle.postgresql.UaffairsFiles;
  * @create: 2018-05-09 14:45
  **/
 public interface UaffairsFilesService {
-    long addUaffairsFilesMapper(UaffairsFiles uaffairsFiles);
+    long addUaffairsFiles(UaffairsFiles uaffairsFiles);
     UaffairsFiles getUaffairsFilesById(int id);
 
 }

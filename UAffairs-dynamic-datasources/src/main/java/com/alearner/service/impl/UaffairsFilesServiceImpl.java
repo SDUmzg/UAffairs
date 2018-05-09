@@ -8,12 +8,14 @@ import com.alearner.util.MyDataSource;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 /**
  * @description:
  * @author: MZG
  * @create: 2018-05-08 18:06
  **/
+@Service
 public class UaffairsFilesServiceImpl implements UaffairsFilesService {
 
     private Logger logger = LoggerFactory.getLogger(this.getClass());

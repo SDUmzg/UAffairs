@@ -14,7 +14,7 @@
     -->
 
     <insert id="addUaffairsFilesMapper" useGeneratedKeys="true" keyProperty="id" parameterType="com.alearner.entity.postgresql.UaffairsFiles">
-        insert into uaffairs_files(file_name,content,operate_time) values (#{fileName},#{content},#{operateTime})
+        insert into uaffairs_files(file_name,content,operate_time) values (#{fileName},#{content},now())
     </insert>
 
     <select id="getUaffairsFilesById"  parameterType="int"  resultType="com.alearner.entity.postgresql.UaffairsFiles">
