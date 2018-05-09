@@ -1,6 +1,8 @@
 package com.alearner.service.impl;
 
+import com.alearner.service.UaffairsFilesService;
 import org.junit.Test;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import static org.junit.Assert.*;
 
@@ -11,11 +13,16 @@ import static org.junit.Assert.*;
  **/
 public class UaffairsFilesServiceImplTest {
 
+    @Autowired
+    private UaffairsFilesService uaffairsFilesService;
+
     @Test
     public void addUaffairsFilesMapper() {
+        
     }
 
     @Test
     public void getUaffairsFilesById() {
+
     }
 }
