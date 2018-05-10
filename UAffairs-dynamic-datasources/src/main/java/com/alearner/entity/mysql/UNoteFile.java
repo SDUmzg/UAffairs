@@ -3,6 +3,7 @@ package com.alearner.entity.mysql;
 import com.alearner.entity.common.BaseModel;
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 
 /**
  * @description:
@@ -11,6 +12,7 @@ import lombok.Setter;
  **/
 @Setter
 @Getter
+@ToString
 public class UNoteFile extends BaseModel {
 
     private int id;
