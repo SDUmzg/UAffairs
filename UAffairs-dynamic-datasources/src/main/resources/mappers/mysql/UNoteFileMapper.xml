@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.alearner.mapper.mysql.UNoteFileMapper"><!--注意这里的地址-->
+    <select id="getUFamilyRelationByStuId"  parameterType="int"  resultType="com.alearner.entity.mysql.UNoteFile">
+        select * from u_note_file where id = #{id} and able_status=true ;
+    </select>
+
+    <insert id="addUNoteFile" useGeneratedKeys="true" keyProperty="id" parameterType="com.alearner.entity.mysql.UNoteFile">
+        insert into u_note_file(name,type,subject,store_tool,store_id) values (#{name},#{type},#{subject},#{storeTool},#{storeId})
+    </insert>
+
+</mapper>

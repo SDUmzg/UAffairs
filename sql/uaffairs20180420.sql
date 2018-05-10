@@ -169,8 +169,8 @@ CREATE TABLE u_sso_user_edu(
 INSERT INTO u_sso_user_edu(sso_id, edu_id, edu_type) VALUES(1,1,1);
 
 
-DROP TABLE IF EXISTS note_file;
-CREATE TABLE note_file(
+DROP TABLE IF EXISTS u_note_file;
+CREATE TABLE u_note_file(
   id int(11) AUTO_INCREMENT PRIMARY KEY COMMENT '编号',
   name varchar(50) NOT NULL COMMENT '文件或者便签名',
   type varchar(20) NOT NULL COMMENT '文件类型',
@@ -184,8 +184,8 @@ CREATE TABLE note_file(
 );
 
 
-DROP TABLE IF EXISTS notes;
-CREATE TABLE notes(
+DROP TABLE IF EXISTS u_notes;
+CREATE TABLE u_notes(
   id int(11) AUTO_INCREMENT PRIMARY KEY COMMENT '编号',
   subject varchar(200) NOT NULL COMMENT '主题',
   content text NOT NULL COMMENT '内容',

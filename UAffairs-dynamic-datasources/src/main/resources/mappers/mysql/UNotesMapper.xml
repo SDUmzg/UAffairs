@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.alearner.mapper.mysql.UNotesMapper"><!--注意这里的地址-->
+    <select id="getUNotesById"  parameterType="int"  resultType="com.alearner.entity.mysql.UNotes">
+        select * from u_notes where id = #{id} and able_status=true ;
+    </select>
+
+    <insert id="addUNotes" useGeneratedKeys="true" keyProperty="id" parameterType="com.alearner.entity.mysql.UNotes">
+        insert into u_notes(subject,content,owner_id,owner_type) values (#{subject},#{content},#{ownerId},#{ownerType})
+    </insert>
+
+</mapper>
