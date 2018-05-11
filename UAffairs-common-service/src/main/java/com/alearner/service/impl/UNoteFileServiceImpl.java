@@ -11,6 +11,7 @@ import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.MediaType;
+import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
 /**
@@ -18,6 +19,7 @@ import org.springframework.web.client.RestTemplate;
  * @author: MZG
  * @create: 2018-05-11 10:18
  **/
+@Service
 public class UNoteFileServiceImpl implements UNoteFileService {
 
     private Logger logger = LoggerFactory.getLogger(this.getClass());
