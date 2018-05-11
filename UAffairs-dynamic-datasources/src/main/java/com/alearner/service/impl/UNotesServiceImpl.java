@@ -23,12 +23,12 @@ public class UNotesServiceImpl  implements UNotesService{
     @Override
     public long addUNotes(UNotes uNotes) {
         logger.info("访问service层 ：UNotesService  方法 ：addUNotes  参数 ： " + uNotes.toString());
-        return 0;
+        return uNotesMapper.addUNotes(uNotes);
     }
 
     @Override
     public UNotes getUNotesById(int id) {
         logger.info("访问service层 ：UNotesService  方法 ：getUNotesById  参数 ：id " + id);
-        return null;
+        return uNotesMapper.getUNotesById(id);
     }
 }
