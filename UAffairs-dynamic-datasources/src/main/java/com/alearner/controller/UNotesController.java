@@ -24,9 +24,7 @@ public class UNotesController {
     @RequestMapping(value = "/addUNotes" , method = RequestMethod.POST)
     public long addUNotes(@RequestBody UNotes uNotes){
         logger.info("访问Controller层 ：UNotesController   方法 ： addUNotes  ， UNotes  :  "+ uNotes.toString());
-        uNotesService.addUNotes(uNotes);
-        //返回插入的主键id
-        return uNotes.getId();
+        return uNotesService.addUNotes(uNotes);
     }
 
     @RequestMapping(value = "/getUNotesById" , method = RequestMethod.GET)

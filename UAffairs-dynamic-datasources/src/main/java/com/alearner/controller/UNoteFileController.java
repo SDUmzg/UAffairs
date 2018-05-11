@@ -25,9 +25,7 @@ public class UNoteFileController {
     @RequestMapping(value = "/addUNoteFile",method = RequestMethod.POST)
     public long addUNoteFile(@RequestBody UNoteFile uNoteFile){
         logger.info("访问Controller层 ：UNoteFileController   方法 ： addUNoteFile  ， fileName  :  "+ uNoteFile.getName());
-        uNoteFileService.addUNoteFile(uNoteFile);
-        //返回主键
-        return uNoteFile.getId();
+        return uNoteFileService.addUNoteFile(uNoteFile);
     }
     @RequestMapping(value = "/getUNoteFileById",method = RequestMethod.GET)
     public UNoteFile getUNoteFileById(@RequestParam("id") int id){
