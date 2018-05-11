@@ -29,6 +29,7 @@ public class UNoteFileController {
         //返回主键
         return uNoteFile.getId();
     }
+    @RequestMapping(value = "/getUNoteFileById",method = RequestMethod.GET)
     public UNoteFile getUNoteFileById(@RequestParam("id") int id){
         logger.info("访问Controller层 ：UNoteFileController   方法 ： getUNoteFileById  ， id  :  "+  id);
         return uNoteFileService.getUNoteFileById(id);
