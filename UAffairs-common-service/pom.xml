@@ -68,6 +68,15 @@
             <artifactId>jackson-core</artifactId>
             <version>2.9.2</version>
         </dependency>
+
+        <!-- xxl-sso-core -->
+        <dependency>
+            <groupId>com.alearner</groupId>
+            <artifactId>uaffairs-xxlsso-core</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
+
+
         <!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind -->
         <!--<dependency>-->
         <!--<groupId>com.fasterxml.jackson.core</groupId>-->

@@ -29,7 +29,9 @@ public class UaffairsFilesServiceImpl implements UaffairsFilesService {
         logger.info("访问postgresql库");
         logger.info("访问表 uaffairs_files");
         logger.info("访问 server层 ， 方法 ： addUaffairsFilesMapper(UaffairsFiles uaffairsFiles)");
-        return uaffairsFilesMapper.addUaffairsFilesMapper(uaffairsFiles);
+        uaffairsFilesMapper.addUaffairsFilesMapper(uaffairsFiles);
+        logger.info("文件 ID ：" + uaffairsFiles.getId());
+        return uaffairsFiles.getId();
     }
 
     @Override

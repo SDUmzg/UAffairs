@@ -17,6 +17,4 @@ public class UNotes extends BaseModel {
     private int id;
     private String subject;
     private String content;
-    private int ownerId;
-    private int ownerType;
 }

@@ -19,6 +19,8 @@ public class UNoteFile extends BaseModel {
     private int id;
     private String name;
     private String type;
+    private int ownerId;
+    private int ownerType;
     private String subject;
     private int storeTool;
     private int storeId;

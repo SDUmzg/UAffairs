@@ -8,7 +8,7 @@
     </select>
 
     <insert id="addUNotes" useGeneratedKeys="true" keyProperty="id" parameterType="com.alearner.entity.mysql.UNotes">
-        insert into u_notes(subject,content,owner_id,owner_type) values (#{subject},#{content},#{ownerId},#{ownerType})
+        insert into u_notes(subject,content) values (#{subject},#{content})
     </insert>
 
 </mapper>

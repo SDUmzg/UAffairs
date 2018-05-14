@@ -20,6 +20,7 @@ import java.util.List;
  **/
 @RestController
 @RequestMapping(value = "/user-info")
+@CrossOrigin
 public class UserInformationController {
 
     private Logger logger = LoggerFactory.getLogger(this.getClass());

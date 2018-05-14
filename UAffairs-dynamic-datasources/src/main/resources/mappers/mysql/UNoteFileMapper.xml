@@ -8,7 +8,7 @@
     </select>
 
     <insert id="addUNoteFile" useGeneratedKeys="true" keyProperty="id" parameterType="com.alearner.entity.mysql.UNoteFile">
-        insert into u_note_file(name,type,subject,store_tool,store_id) values (#{name},#{type},#{subject},#{storeTool},#{storeId})
+        insert into u_note_file(name,type,subject,owner_id,owner_type,store_tool,store_id) values (#{name},#{type},#{subject},#{ownerId},#{ownerType},#{storeTool},#{storeId})
     </insert>
 
 </mapper>
