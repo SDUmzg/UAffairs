@@ -14,7 +14,6 @@ import lombok.ToString;
 @Getter
 @ToString
 public class UNoteFile extends BaseModel {
-
     private int id;
     private String name;
     private String type;
@@ -23,5 +22,4 @@ public class UNoteFile extends BaseModel {
     private int ownerType;
     private int storeTool;
     private int storeId;
-
 }

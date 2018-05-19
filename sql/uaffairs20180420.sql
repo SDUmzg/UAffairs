@@ -54,6 +54,7 @@ create table u_student(
   email varchar(50) COMMENT '邮箱',
   id_card varchar(30) COMMENT '身份证号',
   classes_id int(11) COMMENT '所在班级的id',
+  address varchar(50) COMMENT '家庭地址',
   role tinyint(4)  DEFAULT '0' COMMENT '角色  0:普通    1：管理员',
   status tinyint(4) DEFAULT '0' COMMENT '状态： 0：正常  1：休学  2：退学 3：已毕业',
   able_status boolean NOT NULL DEFAULT '1' COMMENT '0:失效  1：有效',
@@ -62,9 +63,9 @@ create table u_student(
   update_time TIMESTAMP NOT NULL DEFAULT current_timestamp ON UPDATE current_timestamp COMMENT '更新时间'
 );
 
-INSERT INTO u_student(id,u_id,name,sex,phone,email,id_card,classes_id,role)VALUES (1,'201400301185','马宗广','m','17865169606','1666188122@qq.com','371322199512030000',1,1);
-INSERT INTO u_student(id,u_id,name,sex,phone,email,id_card,classes_id,role)VALUES (2,'201400301245','杨莹涛','m','17865169857','yangyingtao@163.com','371322199512030001',1,0);
-INSERT INTO u_student(id,u_id,name,sex,phone,email,id_card,classes_id,role)VALUES (3,'201400301345','朱斯亮','m','17865169999','zhusiliang@163.com','371322199512030002',1,0);
+INSERT INTO u_student(id,u_id,name,sex,phone,email,id_card,classes_id,address,role,status)VALUES (1,'201400301185','马宗广','m','17865169606','1666188122@qq.com','371322199512030000',1,'山东省临沂市',1,0);
+INSERT INTO u_student(id,u_id,name,sex,phone,email,id_card,classes_id,address,role,status)VALUES (2,'201400301245','杨莹涛','m','17865169857','yangyingtao@163.com','371322199512030001',1,'河南长垣',0,0);
+INSERT INTO u_student(id,u_id,name,sex,phone,email,id_card,classes_id,address,role,status)VALUES (3,'201400301345','朱斯亮','m','17865169999','zhusiliang@163.com','371322199512030002',1,,'湖北宜昌',,0,0);
 
 
 DROP TABLE IF EXISTS u_family_relation;
@@ -94,14 +95,15 @@ create table u_teacher(
   email varchar(50) COMMENT '邮箱',
   id_card varchar(30) COMMENT '身份证号',
   college_id int(11) COMMENT '所在学院的id',
+  address varchar(50) COMMENT '家庭地址',
   role tinyint(4) COMMENT '角色',
-  status tinyint(4),
+  status tinyint(4) DEFAULT '0' COMMENT '状态： 0：正常  1：退休  ',,
   able_status boolean NOT NULL DEFAULT '1' COMMENT '0:失效  1：有效',
   description VARCHAR(100) COMMENT '描述',
   create_time TIMESTAMP NOT NULL DEFAULT current_timestamp COMMENT '创建时间',
   update_time TIMESTAMP NOT NULL DEFAULT current_timestamp ON UPDATE current_timestamp COMMENT '更新时间'
 );
-INSERT INTO u_teacher(id, u_id, name, sex, phone, email, id_card, college_id, role, status)VALUES (1,'100000','马老师','w','178651690000','malaoshi@163.com','371322199012030000',1,0,0);
+INSERT INTO u_teacher(id, u_id, name, sex, phone, email, id_card, college_id, address,role, status)VALUES (1,'100000','马老师','w','178651690000','malaoshi@163.com','371322199012030000',1,'山东省济南市',0,0);
 
 
 

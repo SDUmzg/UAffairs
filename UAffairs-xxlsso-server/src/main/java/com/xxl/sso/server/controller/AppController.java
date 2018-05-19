@@ -16,7 +16,6 @@ import java.util.UUID;
 /**
  * sso server (for app)
  *
- * @author xuxueli 2018-04-08 21:02:54
  */
 @Controller
 @RequestMapping("/app")

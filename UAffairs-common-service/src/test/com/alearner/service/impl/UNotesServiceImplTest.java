@@ -31,8 +31,6 @@ public class UNotesServiceImplTest {
         UNotes uNotes = new UNotes();
         uNotes.setSubject("毕业前的作业");
         uNotes.setContent("作业作业作业作业作业作业");
-        uNotes.setOwnerId(1);
-        uNotes.setOwnerType(0);
        long id = uNotesService.addUNotes(uNotes);
         System.err.println(id);
     }

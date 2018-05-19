@@ -6,5 +6,8 @@ package com.alearner.modle.common;
  * @create: 2018-05-11 18:56
  **/
 public class SqlType {
-    public static final int  a = 0 ;
+    public static class STORE_TOOL{
+        public static final int MYSQL=0;
+        public static final int POSTGRESQL=1;
+    }
 }

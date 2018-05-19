@@ -15,8 +15,6 @@ import java.io.IOException;
 
 /**
  * web sso filter
- *
- * @author xuxueli 2018-04-03
  */
 public class XxlSsoFilter extends HttpServlet implements Filter {
     private static Logger logger = LoggerFactory.getLogger(XxlSsoFilter.class);

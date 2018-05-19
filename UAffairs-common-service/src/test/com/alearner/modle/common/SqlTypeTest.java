@@ -12,7 +12,7 @@ import static org.junit.Assert.*;
 public class SqlTypeTest {
     @Test
     public void test(){
-        System.err.println();
+        System.err.println(SqlType.STORE_TOOL.MYSQL);
     }
 
 }
