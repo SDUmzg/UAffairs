@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.alearner.mapper.mysql.UNotifyMapper"><!--注意这里的地址-->
+    <select id="getUNotifyById"  parameterType="int"  resultType="com.alearner.entity.mysql.UNotify">
+        select * from u_notify where id = #{id} and able_status=true ;
+    </select>
+
+    <insert id="addUNotify" useGeneratedKeys="true" keyProperty="id" parameterType="com.alearner.entity.mysql.UNotify">
+        insert into u_notify(content,type,target,target_type,action,sender,) values (#{content},#{type},#{target},#{targetType},#{action},#{sender})
+    </insert>
+
+</mapper>

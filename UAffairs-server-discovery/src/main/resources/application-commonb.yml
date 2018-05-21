@@ -1,0 +1,8 @@
+eureka:
+  instance:
+    hostname: commonb
+  client:
+    registerWithEureka: false
+    fetchRegistry: false
+    serviceUrl:
+      defaultZone: http://commona:8100/eureka/

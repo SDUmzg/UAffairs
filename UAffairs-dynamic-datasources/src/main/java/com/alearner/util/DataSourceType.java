@@ -1,8 +1,5 @@
 package com.alearner.util;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.Setter;
 
 
 public enum DataSourceType {
