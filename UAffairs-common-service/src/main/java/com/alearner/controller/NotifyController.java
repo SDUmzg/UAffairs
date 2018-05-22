@@ -115,13 +115,24 @@ public class NotifyController {
     }
 
 
+    @RequestMapping(value = "/pullAnnounce")
     public ReturnT<List<UUserNotify>> pullAnnounce(HttpServletRequest request){
         logger.info("UNotifyController ,pullAnnounce ");
         XxlUser xxlUser = xxlUtil.getXxlUser(request);
-        UNotify last_announce = mixedNotifyService.getLastAnnounceTimeByUserId(xxlUser.getUserid());
-
-        return null;
+        int userId = xxlUser.getUserid();
+        UNotify last_announce = mixedNotifyService.getLastAnnounceTimeByUserId(userId);
+        List<UNotify> uNotifyList = uNotifyService.getUNotifyByCreateTime(last_announce.getCreateTime());
+        for (UNotify uNotify:uNotifyList){
+            UUserNotify tempUUserNotify = new UUserNotify();
+            tempUUserNotify.setReadStatus(true);
+            tempUUserNotify.setUserId(userId);
+            tempUUserNotify.setNotifyId(uNotify.getId());
+            uUserNotifyService.addUUserNotify(tempUUserNotify);
+        }
+        return new ReturnT(uNotifyList);
     }
+
+
 
 
 }
