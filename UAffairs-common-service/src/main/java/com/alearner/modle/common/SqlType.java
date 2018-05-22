@@ -25,6 +25,7 @@ public class SqlType {
         public static final int MESSAGE = 3;
         public static final int TARGET_ALL = 0;
         public static final String TARGET_TYPE_ALL = "all";
+        public static final String TARGET_TYPE_USER = "user";
         public static final String ACTION_NULL = "announce action";
     }
 }

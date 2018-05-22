@@ -20,4 +20,8 @@ public class XxlUtil {
         USsoUserEdu uSsoUserEdu = userInformationService.getUSsoUserEduById(xxlUser.getUserid());
         return uSsoUserEdu;
     }
+
+    public XxlUser getXxlUser(HttpServletRequest request){
+        return (XxlUser) request.getAttribute(Conf.SSO_USER);
+    }
 }

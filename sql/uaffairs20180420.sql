@@ -124,6 +124,20 @@ create table u_notify(
 );
 
 
+DROP TABLE IF EXISTS u_user_notify;
+create table u_user_notify(
+  id int(11) AUTO_INCREMENT PRIMARY KEY COMMENT '主键',
+  read_status boolean NOT NULL DEFAULT '1' COMMENT '0:失效  1：有效',
+  user_id int(11) NOT NULL  COMMENT 'xxl_sso_user表id ，用户id',
+  notify_id int(11) NOT NULL COMMENT 'u_notify表对应的id',
+  able_status boolean NOT NULL DEFAULT '1' COMMENT '0:失效  1：有效',
+  description VARCHAR(100) COMMENT '描述',
+  create_time TIMESTAMP NOT NULL DEFAULT current_timestamp COMMENT '创建时间',
+  update_time TIMESTAMP NOT NULL DEFAULT current_timestamp ON UPDATE current_timestamp COMMENT '更新时间'
+);
+
+
+
 DROP TABLE IF EXISTS u_subscription;
 create table u_subscription(
   id int(11) AUTO_INCREMENT PRIMARY KEY COMMENT '主键',

@@ -3,8 +3,9 @@ package com.alearner.controller;
 import com.alearner.modle.common.ReturnT;
 import com.alearner.modle.common.SqlType;
 import com.alearner.modle.mysql.UNotify;
+import com.alearner.modle.mysql.UUserNotify;
 import com.alearner.service.UNotifyService;
-import net.bytebuddy.asm.Advice;
+import com.alearner.service.UUserNotifyService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,6 +15,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.HashMap;
+import java.util.Map;
+
 
 /**
  * @description:
@@ -22,11 +26,14 @@ import org.springframework.web.bind.annotation.RestController;
  **/
 @RestController
 @RequestMapping(value = "/u-notify",produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
-public class UNotifyController {
+public class NotifyController {
     private Logger logger = LoggerFactory.getLogger(this.getClass());
 
     @Autowired
     private UNotifyService uNotifyService;
+
+    @Autowired
+    private UUserNotifyService uUserNotifyService;
 
     /**
      id int(11) AUTO_INCREMENT PRIMARY KEY COMMENT '主键',
@@ -73,9 +80,30 @@ public class UNotifyController {
     }
 
 
-//    createMessage(content, sender, receiver)
 
-    public ReturnT<Long> createMessage(String content,int sender,int receiver){
-        return new ReturnT(0);
+    @RequestMapping(value = "/createMessage",method = RequestMethod.POST)
+    public ReturnT<Long> createMessage(@RequestParam(value = "content") String content,
+                                       @RequestParam(value = "sender") int sender,
+                                       @RequestParam(value = "receiver") int receiver){
+        logger.info("UNotifyController ,createMessage , content -- " + content);
+        UNotify uNotify = new UNotify();
+        uNotify.setContent(content);
+        uNotify.setType(SqlType.NOTIFY.MESSAGE);
+        uNotify.setTarget(receiver);
+        uNotify.setTargetType(SqlType.NOTIFY.TARGET_TYPE_USER);
+        uNotify.setAction("message");
+        uNotify.setSender(sender);
+        long notify_id = uNotifyService.addUNotify(uNotify);
+        UUserNotify uUserNotify = new UUserNotify();
+        uUserNotify.setReadStatus(true);
+        uUserNotify.setUserId(sender);
+        uUserNotify.setNotifyId((int)notify_id);
+        long user_notify_id=uUserNotifyService.addUUserNotify(uUserNotify);
+        Map<String,String> res = new HashMap<>();
+        res.put("notify",String.valueOf(notify_id));
+        res.put("user_notify",String.valueOf(user_notify_id));
+        return new ReturnT(res);
     }
+
+
 }

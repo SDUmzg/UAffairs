@@ -1,9 +1,8 @@
-package com.alearner.entity.mysql;
+package com.alearner.modle.mysql;
 
-import com.alearner.entity.common.BaseModel;
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
+
+import com.alearner.modle.common.BaseModel;
+import lombok.*;
 
 /**
  * @description:
@@ -12,8 +11,10 @@ import lombok.ToString;
  **/
 @Getter
 @Setter
+@AllArgsConstructor
+@NoArgsConstructor
 @ToString
-public class UUserNotify extends BaseModel{
+public class UUserNotify extends BaseModel {
     private int id;
     private boolean readStatus;
     private int userId;
