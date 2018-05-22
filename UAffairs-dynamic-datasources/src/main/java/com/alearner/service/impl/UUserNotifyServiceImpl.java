@@ -3,6 +3,8 @@ package com.alearner.service.impl;
 import com.alearner.entity.mysql.UUserNotify;
 import com.alearner.mapper.mysql.UUserNotifyMapper;
 import com.alearner.service.UUserNotifyService;
+import com.alearner.util.DataSourceType;
+import com.alearner.util.MyDataSource;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,6 +23,7 @@ public class UUserNotifyServiceImpl implements UUserNotifyService{
     private UUserNotifyMapper uUserNotifyMapper;
 
     @Override
+    @MyDataSource(DataSourceType.Master)
     public long addUUserNotify(UUserNotify uUserNotify) {
         logger.info("UUserNotifyService , addUUserNotify ");
         uUserNotifyMapper.addUUserNotify(uUserNotify);
@@ -28,6 +31,7 @@ public class UUserNotifyServiceImpl implements UUserNotifyService{
     }
 
     @Override
+    @MyDataSource(DataSourceType.Master)
     public UUserNotify getUUserNotifyById(int id) {
         logger.info("UUserNotifyService , getUUserNotifyById  , id -- "+id);
         return uUserNotifyMapper.getUUserNotifyById(id);
