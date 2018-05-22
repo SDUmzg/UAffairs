@@ -3,9 +3,11 @@ package com.alearner.controller;
 import com.alearner.modle.common.ReturnT;
 import com.alearner.modle.common.SqlType;
 import com.alearner.modle.mysql.UNotify;
+import com.alearner.modle.mysql.USubscription;
 import com.alearner.modle.mysql.UUserNotify;
 import com.alearner.service.MixedNotifyService;
 import com.alearner.service.UNotifyService;
+import com.alearner.service.USubscriptionService;
 import com.alearner.service.UUserNotifyService;
 import com.alearner.util.XxlUtil;
 import com.xxl.sso.core.user.XxlUser;
@@ -41,6 +43,8 @@ public class NotifyController {
     private UUserNotifyService uUserNotifyService;
     @Autowired
     private MixedNotifyService mixedNotifyService;
+    @Autowired
+    private USubscriptionService uSubscriptionService;
     @Autowired
     private XxlUtil xxlUtil;
 
@@ -116,7 +120,7 @@ public class NotifyController {
 
 
     @RequestMapping(value = "/pullAnnounce")
-    public ReturnT<List<UUserNotify>> pullAnnounce(HttpServletRequest request){
+    public ReturnT pullAnnounce(HttpServletRequest request){
         logger.info("UNotifyController ,pullAnnounce ");
         XxlUser xxlUser = xxlUtil.getXxlUser(request);
         int userId = xxlUser.getUserid();
@@ -133,6 +137,13 @@ public class NotifyController {
     }
 
 
+    public ReturnT pullRemind(HttpServletRequest request){
+        logger.info("NotifyController,pullRemind");
+        XxlUser xxlUser = xxlUtil.getXxlUser(request);
+        int user_id = xxlUser.getUserid();
+        List<USubscription> uSubscriptionList = uSubscriptionService.getUSubscriptionByUserId(user_id);
 
+        return new ReturnT(0);
+    }
 
 }

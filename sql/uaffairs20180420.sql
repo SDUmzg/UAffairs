@@ -123,10 +123,6 @@ create table u_notify(
 
 );
 
-# private int id;
-# private boolean readStatus;
-# private int userId;
-# private int notifyId;
 DROP TABLE IF EXISTS u_user_notify;
 create table u_user_notify(
   id int(11) AUTO_INCREMENT PRIMARY KEY COMMENT '主键',
