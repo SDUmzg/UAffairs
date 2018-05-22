@@ -3,12 +3,12 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.alearner.mapper.mysql.MixedNotifyMapper"><!--注意这里的地址-->
-    <select id="getUUserNotifyById"  parameterType="int"  resultType="com.alearner.entity.mysql.UNotify">
+    <select id="getLastAnnounceTimeByUserId"  parameterType="int"  resultType="com.alearner.entity.mysql.UNotify">
         select * from u_notify
         where
           type = 1 and
           id in (
-            select notify_id from u_user_notify where user_id = #{user_id} and able_status = true
+            select notify_id from u_user_notify where user_id = #{userId} and able_status = true
           ) and
           able_status = true
         order by update_time desc limit 1;

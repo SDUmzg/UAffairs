@@ -3,6 +3,8 @@ package com.alearner.service;
 
 import com.alearner.modle.mysql.UNotify;
 
+import java.util.List;
+
 /**
  * @description:
  * @author: MZG
@@ -11,4 +13,5 @@ import com.alearner.modle.mysql.UNotify;
 public interface UNotifyService {
     long addUNotify(UNotify uNotify);
     UNotify getUNotifyById(int id);
+    List<UNotify> getUNotifyByCreateTime(String createTime);
 }

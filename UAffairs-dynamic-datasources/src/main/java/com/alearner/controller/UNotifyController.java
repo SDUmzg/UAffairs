@@ -8,6 +8,8 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 
 /**
  * @description:
@@ -32,5 +34,11 @@ public class UNotifyController {
     public UNotify getUNotifyById(@RequestParam("id") int id){
         logger.info("UNotifyController getUNotifyById   id :"+id);
         return uNotifyService.getUNotifyById(id);
+    }
+
+    @RequestMapping(value = "/getUNotifyByCreateTime",method = RequestMethod.GET)
+    public List<UNotify> getUNotifyByCreateTime(@RequestParam("createTime") String createTime){
+        logger.info("UNotifyController,getUNotifyByCreateTime,createTime -- "+createTime);
+        return uNotifyService.getUNotifyByCreateTime(createTime);
     }
 }

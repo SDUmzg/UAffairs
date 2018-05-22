@@ -10,6 +10,8 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 /**
  * @description:
  * @author: MZG
@@ -35,5 +37,10 @@ public class UNotifyServiceImpl implements UNotifyService{
     @MyDataSource(DataSourceType.Master)
     public UNotify getUNotifyById(int id) {
         return uNotifyMapper.getUNotifyById(id);
+    }
+
+    @Override
+    public List<UNotify> getUNotifyByCreateTime(String createTime) {
+        return uNotifyMapper.getUNotifyByCreateTime(createTime);
     }
 }

@@ -2,6 +2,8 @@ package com.alearner.service;
 
 import com.alearner.entity.mysql.UNotify;
 
+import java.util.List;
+
 /**
  * @description:
  * @author: MZG
@@ -10,4 +12,6 @@ import com.alearner.entity.mysql.UNotify;
 public interface UNotifyService {
     long addUNotify(UNotify uNotify);
     UNotify getUNotifyById(int id);
+    List<UNotify> getUNotifyByCreateTime(String createTime);
+
 }

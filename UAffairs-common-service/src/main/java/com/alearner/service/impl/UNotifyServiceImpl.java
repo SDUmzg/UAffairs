@@ -14,6 +14,8 @@ import org.springframework.http.MediaType;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
+import java.util.List;
+
 /**
  * @description:
  * @author: MZG
@@ -43,6 +45,14 @@ public class UNotifyServiceImpl implements UNotifyService{
         String url = "http://dynamic-datasources/u-notify/getUNotifyById?id="+id;
         logger.info("请求连接 id ："+id);
         return restTemplate.exchange(url, HttpMethod.GET,null,new ParameterizedTypeReference<UNotify>(){}).getBody();
+
+    }
+
+    @Override
+    public List<UNotify> getUNotifyByCreateTime(String createTime) {
+        String url = "http://dynamic-datasources/u-notify/getUNotifyByCreateTime?createTime="+createTime;
+        logger.info("请求连接 id ："+createTime);
+        return restTemplate.exchange(url, HttpMethod.GET,null,new ParameterizedTypeReference<List<UNotify>>(){}).getBody();
 
     }
 }

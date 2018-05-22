@@ -4,6 +4,7 @@ import com.alearner.modle.common.ReturnT;
 import com.alearner.modle.common.SqlType;
 import com.alearner.modle.mysql.UNotify;
 import com.alearner.modle.mysql.UUserNotify;
+import com.alearner.service.MixedNotifyService;
 import com.alearner.service.UNotifyService;
 import com.alearner.service.UUserNotifyService;
 import com.alearner.util.XxlUtil;
@@ -38,6 +39,8 @@ public class NotifyController {
 
     @Autowired
     private UUserNotifyService uUserNotifyService;
+    @Autowired
+    private MixedNotifyService mixedNotifyService;
     @Autowired
     private XxlUtil xxlUtil;
 
@@ -115,6 +118,7 @@ public class NotifyController {
     public ReturnT<List<UUserNotify>> pullAnnounce(HttpServletRequest request){
         logger.info("UNotifyController ,pullAnnounce ");
         XxlUser xxlUser = xxlUtil.getXxlUser(request);
+        UNotify last_announce = mixedNotifyService.getLastAnnounceTimeByUserId(xxlUser.getUserid());
 
         return null;
     }

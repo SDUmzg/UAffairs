@@ -11,4 +11,8 @@
         insert into u_notify(content,type,target,target_type,action,sender) values (#{content},#{type},#{target},#{targetType},#{action},#{sender})
     </insert>
 
+    <select id="getUNotifyByCreateTime"  parameterType="String"  resultType="com.alearner.entity.mysql.UNotify">
+        select * from u_notify where type = 1 and able_status=true and create_time > #{createTime};
+    </select>
+
 </mapper>

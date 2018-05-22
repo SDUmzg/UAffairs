@@ -4,8 +4,6 @@ import java.io.Serializable;
 
 /**
  * xxl sso user
- *
- * @author xuxueli 2018-04-02 19:59:49
  */
 public class XxlUser implements Serializable {
     private static final long serialVersionUID = 42L;

@@ -11,5 +11,5 @@ import org.springframework.stereotype.Component;
  **/
 @Component
 public interface MixedNotifyMapper {
-    UNotify getLastAnnounceTimeByUserId(@Param("user_id") int user_id);
+    UNotify getLastAnnounceTimeByUserId(@Param("userId") int userId);
 }
