@@ -12,6 +12,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  * @description:
@@ -25,12 +29,22 @@ public class XxlSsoApiFilter extends HttpServlet implements Filter {
     private String ssoServer;
     private String logoutPath;
 
+    /**
+     * 封装，不需要过滤的list列表
+     */
+    protected static List<Pattern> patterns = new ArrayList<Pattern>();
+
 
     public void init(FilterConfig filterConfig) throws ServletException {
 
         ssoServer = filterConfig.getInitParameter(Conf.SSO_SERVER);
         if (ssoServer!=null && ssoServer.trim().length()>0) {
             logoutPath = filterConfig.getInitParameter(Conf.SSO_LOGOUT_PATH);
+        }
+        String exclusionsStr  = filterConfig.getInitParameter("exclusions");
+        for (String onePattern:exclusionsStr.split(",")){
+            logger.info("exclusions 规则 ： "+onePattern);
+            patterns.add(Pattern.compile(onePattern));
         }
 
         logger.info("XxlSsoFilter init.");
@@ -43,6 +57,20 @@ public class XxlSsoApiFilter extends HttpServlet implements Filter {
 
         String servletPath = ((HttpServletRequest) request).getServletPath();
         String link = req.getRequestURL().toString();
+
+
+
+        String url = req.getRequestURI().substring(req.getContextPath().length());
+        if (url.startsWith("/") && url.length() > 1) {
+            url = url.substring(0);
+        }
+        logger.info("当前请求的url"+url);
+
+        if (isInclude(url)){
+            chain.doFilter(request, response);
+            return;
+        }
+
 
         // logout filter
         if (logoutPath!=null
@@ -100,5 +128,21 @@ public class XxlSsoApiFilter extends HttpServlet implements Filter {
         // already login, allow
         chain.doFilter(request, response);
         return;
+    }
+
+    /**
+     * 是否需要过滤
+     * @param url
+     * @return
+     */
+    private boolean isInclude(String url) {
+        logger.info("判断url是否需要过滤 : "+url);
+        for (Pattern pattern : patterns) {
+            Matcher matcher = pattern.matcher(url);
+            if (matcher.matches()) {
+                return true;
+            }
+        }
+        return false;
     }
 }

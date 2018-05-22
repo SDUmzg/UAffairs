@@ -8,7 +8,7 @@
     </select>
 
     <insert id="addUNotify" useGeneratedKeys="true" keyProperty="id" parameterType="com.alearner.entity.mysql.UNotify">
-        insert into u_notify(content,type,target,target_type,action,sender,) values (#{content},#{type},#{target},#{targetType},#{action},#{sender})
+        insert into u_notify(content,type,target,target_type,action,sender) values (#{content},#{type},#{target},#{targetType},#{action},#{sender})
     </insert>
 
 </mapper>

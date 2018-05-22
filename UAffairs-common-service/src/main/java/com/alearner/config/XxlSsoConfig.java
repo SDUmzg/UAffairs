@@ -32,10 +32,23 @@ public class XxlSsoConfig {
         // filter
         FilterRegistrationBean registration = new FilterRegistrationBean();
 
+        StringBuffer excludeUriStr = new StringBuffer();
+        excludeUriStr.append("/swagger-resources/*");
+        excludeUriStr.append(",");
+        excludeUriStr.append("/swagger-ui.html");
+        excludeUriStr.append(",");
+        excludeUriStr.append("/v2/api-docs");
+        excludeUriStr.append(",");
+        excludeUriStr.append("/webjars/*");
+
+
+
         registration.setName("XxlSsoFilter");
         registration.setOrder(1);
         registration.addUrlPatterns("/*");
         registration.setFilter(new XxlSsoApiFilter());
+
+        registration.addInitParameter("exclusions",excludeUriStr.toString());
         registration.addInitParameter(Conf.SSO_SERVER, xxlSsoServer);
         registration.addInitParameter(Conf.SSO_LOGOUT_PATH, xxlSsoLogoutPath);
 

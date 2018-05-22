@@ -1,11 +1,12 @@
 package com.alearner.controller;
 
 import com.alearner.entity.mysql.UNotify;
+import com.alearner.mapper.mysql.UNotifyMapper;
+import com.alearner.service.UNotifyService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
-
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
 
 
 /**
@@ -18,12 +19,18 @@ import org.springframework.web.bind.annotation.RestController;
 public class UNotifyController {
     private Logger logger = LoggerFactory.getLogger(this.getClass());
 
-    @RequestMapping
-    public long addUNotify(UNotify uNotify){
-        return 0;
+    @Autowired
+    private UNotifyService uNotifyService;
+
+    @RequestMapping(value = "/addUNotify", method = RequestMethod.POST)
+    public long addUNotify(@RequestBody UNotify uNotify){
+        logger.info("UNotifyController addUNotify"+uNotify.getContent());
+        return uNotifyService.addUNotify(uNotify);
     }
 
-    public UNotify getUNotifyById(int id){
-        return null;
+    @RequestMapping(value = "/getUNotifyById",method = RequestMethod.GET)
+    public UNotify getUNotifyById(@RequestParam("id") int id){
+        logger.info("UNotifyController getUNotifyById   id :"+id);
+        return uNotifyService.getUNotifyById(id);
     }
 }

@@ -82,7 +82,7 @@ public class FileSystemController {
         uNoteFile.setStoreTool(SqlType.STORE_TOOL.POSTGRESQL);
         uNoteFile.setStoreId(file_id);
         long uNoteFileId = uNoteFileService.addUNoteFile(uNoteFile);
-        return new ReturnT(ReturnT.SUCCESS_CODE,String.valueOf(uNoteFileId));
+        return new ReturnT(String.valueOf(uNoteFileId));
     }
 
     @RequestMapping(value = "/addUNotes",method = RequestMethod.GET)
@@ -108,7 +108,7 @@ public class FileSystemController {
         uNoteFile.setStoreTool(SqlType.STORE_TOOL.MYSQL);
         uNoteFile.setStoreId(file_id);
         long uNoteFileId = uNoteFileService.addUNoteFile(uNoteFile);
-        return new ReturnT(ReturnT.SUCCESS_CODE,String.valueOf(uNoteFileId));
+        return new ReturnT(String.valueOf(uNoteFileId));
     }
 
 
