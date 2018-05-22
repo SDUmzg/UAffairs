@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.alearner.mapper.mysql.MixedMapper"><!--注意这里的地址-->
+    <select id="getUUserNotifyById"  parameterType="int"  resultType="com.alearner.entity.mysql.UNotify">
+        select * from u_notify
+        where
+          type = 1 and
+          id in (
+            select notify_id from u_user_notify where user_id = #{user_id} and able_status = true
+          ) and
+          able_status = true
+        order by update_time desc limit 1;
+    </select>
+
+
+
+    <!--<insert id="addUUserNotify" useGeneratedKeys="true" keyProperty="id" parameterType="com.alearner.entity.mysql.UUserNotify">-->
+        <!--insert into u_user_notify(read_status,user_id,notify_id)values(#{readStatus},#{userId},#{notifyId})-->
+    <!--</insert>-->
+
+</mapper>

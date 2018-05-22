@@ -6,6 +6,8 @@ import com.alearner.modle.mysql.UNotify;
 import com.alearner.modle.mysql.UUserNotify;
 import com.alearner.service.UNotifyService;
 import com.alearner.service.UUserNotifyService;
+import com.alearner.util.XxlUtil;
+import com.xxl.sso.core.user.XxlUser;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,7 +17,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 
@@ -34,6 +38,8 @@ public class NotifyController {
 
     @Autowired
     private UUserNotifyService uUserNotifyService;
+    @Autowired
+    private XxlUtil xxlUtil;
 
     /**
      id int(11) AUTO_INCREMENT PRIMARY KEY COMMENT '主键',
@@ -103,6 +109,14 @@ public class NotifyController {
         res.put("notify",String.valueOf(notify_id));
         res.put("user_notify",String.valueOf(user_notify_id));
         return new ReturnT(res);
+    }
+
+
+    public ReturnT<List<UUserNotify>> pullAnnounce(HttpServletRequest request){
+        logger.info("UNotifyController ,pullAnnounce ");
+        XxlUser xxlUser = xxlUtil.getXxlUser(request);
+
+        return null;
     }
 
 
