@@ -65,7 +65,7 @@ create table u_student(
 
 INSERT INTO u_student(id,u_id,name,sex,phone,email,id_card,classes_id,address,role,status)VALUES (1,'201400301185','马宗广','m','17865169606','1666188122@qq.com','371322199512030000',1,'山东省临沂市',1,0);
 INSERT INTO u_student(id,u_id,name,sex,phone,email,id_card,classes_id,address,role,status)VALUES (2,'201400301245','杨莹涛','m','17865169857','yangyingtao@163.com','371322199512030001',1,'河南长垣',0,0);
-INSERT INTO u_student(id,u_id,name,sex,phone,email,id_card,classes_id,address,role,status)VALUES (3,'201400301345','朱斯亮','m','17865169999','zhusiliang@163.com','371322199512030002',1,,'湖北宜昌',,0,0);
+INSERT INTO u_student(id,u_id,name,sex,phone,email,id_card,classes_id,address,role,status)VALUES (3,'201400301345','朱斯亮','m','17865169999','zhusiliang@163.com','371322199512030002',1,'湖北宜昌',0,0);
 
 
 DROP TABLE IF EXISTS u_family_relation;
@@ -97,7 +97,7 @@ create table u_teacher(
   college_id int(11) COMMENT '所在学院的id',
   address varchar(50) COMMENT '家庭地址',
   role tinyint(4) COMMENT '角色',
-  status tinyint(4) DEFAULT '0' COMMENT '状态： 0：正常  1：退休  ',,
+  status tinyint(4) DEFAULT '0' COMMENT '状态： 0：正常  1：退休  ',
   able_status boolean NOT NULL DEFAULT '1' COMMENT '0:失效  1：有效',
   description VARCHAR(100) COMMENT '描述',
   create_time TIMESTAMP NOT NULL DEFAULT current_timestamp COMMENT '创建时间',
@@ -123,17 +123,16 @@ create table u_notify(
 
 );
 
-
+# private int id;
+# private boolean readStatus;
+# private int userId;
+# private int notifyId;
 DROP TABLE IF EXISTS u_user_notify;
 create table u_user_notify(
   id int(11) AUTO_INCREMENT PRIMARY KEY COMMENT '主键',
   read_status boolean NOT NULL DEFAULT '1' COMMENT '0:失效  1：有效',
   user_id int(11) NOT NULL  COMMENT 'xxl_sso_user表id ，用户id',
-  notify_id int(11) NOT NULL COMMENT 'u_notify表对应的id',
-  able_status boolean NOT NULL DEFAULT '1' COMMENT '0:失效  1：有效',
-  description VARCHAR(100) COMMENT '描述',
-  create_time TIMESTAMP NOT NULL DEFAULT current_timestamp COMMENT '创建时间',
-  update_time TIMESTAMP NOT NULL DEFAULT current_timestamp ON UPDATE current_timestamp COMMENT '更新时间'
+  notify_id int(11) NOT NULL COMMENT 'u_notify'
 );
 
 

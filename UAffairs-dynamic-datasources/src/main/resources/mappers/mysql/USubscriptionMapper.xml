@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.alearner.mapper.mysql.USubscriptionMapper"><!--注意这里的地址-->
+
+    <insert id="addUSubscription" useGeneratedKeys="true" keyProperty="id" parameterType="com.alearner.entity.mysql.USubscription">
+        insert into u_subscription(target,target_type,action,user)values(#{target},#{targetType},#{action},#{user})
+    </insert>
+
+    <select id="getUSubscriptionByUserId"  parameterType="int"  resultType="com.alearner.entity.mysql.USubscription">
+        select * from u_subscription where user = #{user} and able_status=true order by create_time  desc ;
+    </select>
+
+</mapper>
