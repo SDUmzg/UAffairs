@@ -16,6 +16,18 @@
 
 
 
+    <select id="getUserNotifyListByUserId"  parameterType="int"  resultType="com.alearner.entity.mysql.UserNotifyList">
+        select a.id , a.read_status , a.user_id ,a.notify_id , b.content , b.type,b.target,b.target_type,b.action,b.sender,a.able_status as able_user_notify,b.able_status as able_notify,a.update_time
+        from u_user_notify a , u_notify b
+        where  a.user_id = #{userId} and
+               a.notify_id  = b.id  and
+               a.able_status = true
+               and b.able_status = true
+        order by a.read_status asc,a.update_time desc;
+    </select>
+
+
+
     <!--<insert id="addUUserNotify" useGeneratedKeys="true" keyProperty="id" parameterType="com.alearner.entity.mysql.UUserNotify">-->
         <!--insert into u_user_notify(read_status,user_id,notify_id)values(#{readStatus},#{userId},#{notifyId})-->
     <!--</insert>-->

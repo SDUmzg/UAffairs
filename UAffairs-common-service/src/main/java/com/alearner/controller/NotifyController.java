@@ -11,6 +11,7 @@ import com.alearner.service.USubscriptionService;
 import com.alearner.service.UUserNotifyService;
 import com.alearner.util.XxlUtil;
 import com.xxl.sso.core.user.XxlUser;
+import org.omg.CORBA.INVALID_TRANSACTION;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -146,6 +147,16 @@ public class NotifyController {
         long affect_row = uSubscriptionService.disableUSubscription(uSubscription);
         return new ReturnT(affect_row);
     }
+
+    @RequestMapping(value = "/getUUserNotifyByUserId",method = RequestMethod.GET)
+    public ReturnT<List<UUserNotify>> getUUserNotifyByUserId(@RequestParam("userId") int userId){
+        logger.info("NotifyController,getUUserNotifyByUserId");
+        List<UUserNotify> uUserNotifyList = uUserNotifyService.getUUserNotifyByUserId(userId);
+        return new ReturnT(uUserNotifyList);
+    }
+
+
+
 
 
 

@@ -208,3 +208,13 @@ CREATE TABLE u_notes(
   update_time TIMESTAMP NOT NULL DEFAULT current_timestamp ON UPDATE current_timestamp COMMENT '更新时间'
 );
 
+
+
+select a.id , a.read_status , a.user_id ,a.notify_id , b.content , b.type,b.target,b.target_type,b.action,b.sender,a.able_status as able_user_notify,b.able_status as able_notify,a.update_time
+from u_user_notify a , u_notify b
+where  a.user_id = 1 and
+       a.notify_id  = b.id  and
+       a.able_status = true
+       and b.able_status = true
+order by a.read_status asc,a.update_time desc;
+

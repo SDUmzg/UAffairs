@@ -48,8 +48,8 @@ public class UUserNotifyServiceImpl implements UUserNotifyService{
 
     @Override
     public List<UUserNotify> getUUserNotifyByUserId(int user) {
-        String url = "http://dynamic-datasources/u-user-notify/getUUserNotifyById?user="+user;
-        logger.info("请求连接 user ："+user);
+        String url = "http://dynamic-datasources/u-user-notify/getUUserNotifyByUserId?user="+user;
+        logger.info("请求连接 url ："+url);
         return restTemplate.exchange(url, HttpMethod.GET,null,new ParameterizedTypeReference<List<UUserNotify>>(){}).getBody();
     }
 }

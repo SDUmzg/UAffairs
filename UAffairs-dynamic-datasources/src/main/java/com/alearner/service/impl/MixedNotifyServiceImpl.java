@@ -1,6 +1,7 @@
 package com.alearner.service.impl;
 
 import com.alearner.entity.mysql.UNotify;
+import com.alearner.entity.mysql.UserNotifyList;
 import com.alearner.mapper.mysql.MixedNotifyMapper;
 import com.alearner.service.MixedNotifyService;
 import com.alearner.util.DataSourceType;
@@ -9,6 +10,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 /**
  * @description:
@@ -25,5 +28,12 @@ public class MixedNotifyServiceImpl implements MixedNotifyService {
     public UNotify getLastAnnounceTimeByUserId(int user_id) {
         logger.info("MixedNotifyService,getLastAnnounceTimeByUserId");
         return mixedNotifyMapper.getLastAnnounceTimeByUserId(user_id);
+    }
+
+    @Override
+    @MyDataSource(DataSourceType.Master)
+    public List<UserNotifyList> getUserNotifyListByUserId(int userId) {
+        logger.info("MixedNotifyService,getUserNotifyListByUserId");
+        return mixedNotifyMapper.getUserNotifyListByUserId(userId);
     }
 }

@@ -15,7 +15,7 @@ import java.util.List;
 public interface UUserNotifyMapper {
     long addUUserNotify(UUserNotify uUserNotify);
     UUserNotify getUUserNotifyById(@Param("id")int id);
-    List<UUserNotify> getUUserNotifyByUserId(@Param("user")int user);
+    List<UUserNotify> getUUserNotifyByUserId(@Param("userId")int userId);
 
 
 }
