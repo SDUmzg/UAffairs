@@ -36,4 +36,14 @@ public class USubscriptionServiceImplTest {
     @Test
     public void getUSubscriptionByUserId() {
     }
+
+    @Test
+    public void disableUSubscription(){
+        USubscription uSubscription = new USubscription();
+        uSubscription.setUser(1);
+        uSubscription.setTarget(1);
+        uSubscription.setTargetType("note");
+        long  affect_row = uSubscriptionService.disableUSubscription(uSubscription);
+        System.err.println(affect_row);
+    }
 }

@@ -15,4 +15,5 @@ import java.util.List;
 public interface USubscriptionMapper {
     long addUSubscription(USubscription uSubscription);
     List<USubscription> getUSubscriptionByUserId(@Param("user")int user);
+    long disableUSubscription(USubscription uSubscription);
 }

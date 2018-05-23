@@ -8,6 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+import java.util.List;
+
 import static org.junit.Assert.*;
 
 /**
@@ -35,5 +37,13 @@ public class UUserNotifyServiceImplTest {
 
     @Test
     public void getUUserNotifyById() {
+    }
+
+    @Test
+    public void getUUserNotifyByUserId(){
+        List<UUserNotify> uUserNotifyList = uUserNotifyService.getUUserNotifyByUserId(1);
+        for (UUserNotify uUserNotify:uUserNotifyList){
+            System.err.println(uUserNotify.toString());
+        }
     }
 }

@@ -7,6 +7,8 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 /**
  * @description:
  * @author: MZG
@@ -30,5 +32,11 @@ public class UUserNotifyController {
     public UUserNotify getUUserNotifyById(@RequestParam(value = "id") int id){
         logger.info("UUserNotifyController , getUUserNotifyById , id -- "+id);
         return uUserNotifyService.getUUserNotifyById(id);
+    }
+
+    @RequestMapping(value = "/getUUserNotifyByUserId",method = RequestMethod.GET)
+    public List<UUserNotify> getUUserNotifyByUserId(@RequestParam("user") int user){
+        logger.info("UUserNotifyController , getUUserNotifyByUserId , user -- " + user);
+        return uUserNotifyService.getUUserNotifyByUserId(user);
     }
 }

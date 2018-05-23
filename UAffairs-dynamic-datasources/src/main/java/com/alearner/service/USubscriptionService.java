@@ -12,4 +12,5 @@ import java.util.List;
 public interface USubscriptionService {
     long addUSubscription(USubscription uSubscription);
     List<USubscription> getUSubscriptionByUserId(int user);
+    long disableUSubscription(USubscription uSubscription);
 }

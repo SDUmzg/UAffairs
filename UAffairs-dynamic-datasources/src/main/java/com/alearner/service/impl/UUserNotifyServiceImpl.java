@@ -10,6 +10,8 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 /**
  * @description:
  * @author: MZG
@@ -35,5 +37,12 @@ public class UUserNotifyServiceImpl implements UUserNotifyService{
     public UUserNotify getUUserNotifyById(int id) {
         logger.info("UUserNotifyService , getUUserNotifyById  , id -- "+id);
         return uUserNotifyMapper.getUUserNotifyById(id);
+    }
+
+    @Override
+    @MyDataSource(DataSourceType.Master)
+    public List<UUserNotify> getUUserNotifyByUserId(int user) {
+        logger.info("UUserNotifyService , getUUserNotifyByUserId  , user -- " + user);
+        return uUserNotifyMapper.getUUserNotifyByUserId(user);
     }
 }

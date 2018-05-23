@@ -6,9 +6,7 @@ import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-/**
- * @author xuxueli 2015-12-12 18:09:04
- */
+
 public class PermissionInterceptor extends HandlerInterceptorAdapter {
 
 

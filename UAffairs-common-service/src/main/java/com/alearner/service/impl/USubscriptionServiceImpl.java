@@ -46,4 +46,15 @@ public class USubscriptionServiceImpl implements USubscriptionService {
         return restTemplate.exchange(url, HttpMethod.GET,null,new ParameterizedTypeReference<List<USubscription>>(){}).getBody();
 
     }
+
+    @Override
+    public long disableUSubscription(USubscription uSubscription) {
+        String url = "http://dynamic-datasources/u-subscription/disableUSubscription";
+        logger.info("请求连接 url ："+url);
+        logger.info("user id ："+ uSubscription.getUser());
+        HttpHeaders headers = new HttpHeaders();
+        headers.setContentType(MediaType.APPLICATION_JSON_UTF8);
+        HttpEntity<Object> requestEntity = new HttpEntity<Object>(uSubscription,headers);
+        return restTemplate.exchange(url, HttpMethod.POST, requestEntity, Long.class).getBody();
+    }
 }

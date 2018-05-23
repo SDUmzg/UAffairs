@@ -7,9 +7,7 @@ import org.springframework.cloud.client.loadbalancer.LoadBalanced;
 import org.springframework.context.annotation.Bean;
 import org.springframework.web.client.RestTemplate;
 
-/**
- * @author xuxueli 2018-03-22 23:41:47
- */
+
 @EnableAutoConfiguration
 @SpringBootApplication
 public class XxlClientApplication {

@@ -4,9 +4,7 @@ import com.xxl.sso.core.entity.ReturnT;
 
 /**
  * conf
- *
- * @author xuxueli 2018-04-02 19:18:04
- */
+ **/
 public class Conf {
 
     /**

@@ -14,6 +14,8 @@ import org.springframework.http.MediaType;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
+import java.util.List;
+
 /**
  * @description:
  * @author: MZG
@@ -42,5 +44,12 @@ public class UUserNotifyServiceImpl implements UUserNotifyService{
         String url = "http://dynamic-datasources/u-user-notify/getUUserNotifyById?id="+id;
         logger.info("请求连接 id ："+id);
         return restTemplate.exchange(url, HttpMethod.GET,null,new ParameterizedTypeReference<UUserNotify>(){}).getBody();
+    }
+
+    @Override
+    public List<UUserNotify> getUUserNotifyByUserId(int user) {
+        String url = "http://dynamic-datasources/u-user-notify/getUUserNotifyById?user="+user;
+        logger.info("请求连接 user ："+user);
+        return restTemplate.exchange(url, HttpMethod.GET,null,new ParameterizedTypeReference<List<UUserNotify>>(){}).getBody();
     }
 }

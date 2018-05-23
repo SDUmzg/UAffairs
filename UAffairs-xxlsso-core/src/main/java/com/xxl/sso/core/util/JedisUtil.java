@@ -18,7 +18,6 @@ import java.util.concurrent.locks.ReentrantLock;
  * Redis client base on jedis 根据继承类的不同,
  * jedis实例方式不用:JedisSimpleFactry/JedisPoolFactry/ShardedJedisPoolFactry
  * 
- * @author xuxueli 2015-7-10 18:34:07
  *
  * 	# for redis (sharded.jedis.address=host01:port,host02:port)
  *	sharded.jedis.address=127.0.0.1:6379,127.0.0.1:6379,127.0.0.1:6379

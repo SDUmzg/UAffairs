@@ -17,7 +17,6 @@ import java.io.IOException;
 /**
  * app sso filter
  *
- * @author xuxueli 2018-04-08 21:30:54
  */
 public class XxlSsoTokenFilter extends HttpServlet implements Filter {
     private static Logger logger = LoggerFactory.getLogger(XxlSsoTokenFilter.class);

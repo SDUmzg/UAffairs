@@ -116,13 +116,7 @@ public class NotifyController {
         int userId = xxlUser.getUserid();
         UNotify last_announce = mixedNotifyService.getLastAnnounceTimeByUserId(userId);
         List<UNotify> uNotifyList = uNotifyService.getUNotifyByCreateTime(last_announce.getCreateTime());
-        for (UNotify uNotify:uNotifyList){
-            UUserNotify tempUUserNotify = new UUserNotify();
-            tempUUserNotify.setReadStatus(true);
-            tempUUserNotify.setUserId(userId);
-            tempUUserNotify.setNotifyId(uNotify.getId());
-            uUserNotifyService.addUUserNotify(tempUUserNotify);
-        }
+        addNotifyToUserNotify(uNotifyList,userId);
         return new ReturnT(uNotifyList);
     }
 
@@ -134,17 +128,37 @@ public class NotifyController {
         List<USubscription> uSubscriptionList = uSubscriptionService.getUSubscriptionByUserId(userId);
         for (USubscription uSubscription:uSubscriptionList){
             List<UNotify> uNotifyListTemp = uNotifyService.getUNotifyBySubscription(uSubscription);
-            for (UNotify uNotify:uNotifyListTemp){
-                UUserNotify tempUUserNotify = new UUserNotify();
-                tempUUserNotify.setReadStatus(true);
-                tempUUserNotify.setUserId(userId);
-                tempUUserNotify.setNotifyId(uNotify.getId());
-                uUserNotifyService.addUUserNotify(tempUUserNotify);
-            }
+            addNotifyToUserNotify(uNotifyListTemp,userId);
         }
         return new ReturnT(uSubscriptionList);
     }
 
 
+    @RequestMapping(value = "/cancelSubscription",method = RequestMethod.GET)
+    public ReturnT cancelSubscription(@RequestParam("user") int user,
+                                      @RequestParam("target") int target,
+                                      @RequestParam("targetType") String targetType){
+        logger.info("NotifyController,cancelSubscription");
+        USubscription uSubscription = new USubscription();
+        uSubscription.setUser(user);
+        uSubscription.setTarget(target);
+        uSubscription.setTargetType(targetType);
+        long affect_row = uSubscriptionService.disableUSubscription(uSubscription);
+        return new ReturnT(affect_row);
+    }
+
+
+
+
+    // 将查询出来的notify与user notify 关联起来
+    public void addNotifyToUserNotify(List<UNotify> uNotifyList,int userId){
+        for (UNotify uNotify:uNotifyList){
+            UUserNotify tempUUserNotify = new UUserNotify();
+            tempUUserNotify.setReadStatus(true);
+            tempUUserNotify.setUserId(userId);
+            tempUUserNotify.setNotifyId(uNotify.getId());
+            uUserNotifyService.addUUserNotify(tempUUserNotify);
+        }
+    }
 
 }

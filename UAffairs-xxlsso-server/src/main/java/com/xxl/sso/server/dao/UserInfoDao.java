@@ -6,9 +6,7 @@ import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
-/**
- * @author xuxueli 2017-08-02 22:34:53
- */
+
 @Mapper
 public interface UserInfoDao {
 

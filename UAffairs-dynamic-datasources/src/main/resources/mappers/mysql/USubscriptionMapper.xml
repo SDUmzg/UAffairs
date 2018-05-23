@@ -12,4 +12,12 @@
         select * from u_subscription where user = #{user} and able_status=true order by create_time  desc ;
     </select>
 
+    <update id="disableUSubscription" parameterType="com.alearner.entity.mysql.USubscription">
+        UPDATE u_subscription
+        SET able_status=false
+        WHERE user = #{user}
+          and target = #{target}
+          and target_type = #{targetType}
+    </update>
+
 </mapper>

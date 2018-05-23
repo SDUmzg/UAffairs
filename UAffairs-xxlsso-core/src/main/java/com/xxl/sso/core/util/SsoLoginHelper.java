@@ -7,9 +7,7 @@ import com.xxl.sso.core.user.XxlUser;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-/**
- * @author xuxueli 2018-04-03
- */
+
 public class SsoLoginHelper {
 
 

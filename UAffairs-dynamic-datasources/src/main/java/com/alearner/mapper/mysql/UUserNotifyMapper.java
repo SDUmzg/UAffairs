@@ -4,6 +4,8 @@ import com.alearner.entity.mysql.UUserNotify;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Component;
 
+import java.util.List;
+
 /**
  * @description:
  * @author: MZG
@@ -13,4 +15,7 @@ import org.springframework.stereotype.Component;
 public interface UUserNotifyMapper {
     long addUUserNotify(UUserNotify uUserNotify);
     UUserNotify getUUserNotifyById(@Param("id")int id);
+    List<UUserNotify> getUUserNotifyByUserId(@Param("user")int user);
+
+
 }

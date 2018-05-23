@@ -38,4 +38,11 @@ public class USubscriptionServiceImpl implements USubscriptionService {
         logger.info("USubscriptionService,getUSubscriptionByUserId");
         return uSubscriptionMapper.getUSubscriptionByUserId(user);
     }
+
+    @Override
+    @MyDataSource(DataSourceType.Master)
+    public long disableUSubscription(USubscription uSubscription) {
+        logger.info("USubscriptionService,disableUSubscription");
+        return uSubscriptionMapper.disableUSubscription(uSubscription);
+    }
 }

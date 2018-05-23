@@ -32,4 +32,11 @@ public class USubscriptionController {
         logger.info("USubscriptionController,getUSubscriptionByUserId");
         return uSubscriptionService.getUSubscriptionByUserId(user);
     }
+
+
+    @RequestMapping(value = "/disableUSubscription",method = RequestMethod.POST)
+    public long disableUSubscription(@RequestBody USubscription uSubscription){
+        logger.info("USubscriptionController,disableUSubscription");
+        return uSubscriptionService.disableUSubscription(uSubscription);
+    }
 }

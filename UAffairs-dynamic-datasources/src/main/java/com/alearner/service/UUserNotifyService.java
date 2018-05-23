@@ -2,6 +2,8 @@ package com.alearner.service;
 
 import com.alearner.entity.mysql.UUserNotify;
 
+import java.util.List;
+
 /**
  * @description:
  * @author: MZG
@@ -10,4 +12,5 @@ import com.alearner.entity.mysql.UUserNotify;
 public interface UUserNotifyService {
     long addUUserNotify(UUserNotify uUserNotify);
     UUserNotify getUUserNotifyById(int id);
+    List<UUserNotify> getUUserNotifyByUserId(int user);
 }

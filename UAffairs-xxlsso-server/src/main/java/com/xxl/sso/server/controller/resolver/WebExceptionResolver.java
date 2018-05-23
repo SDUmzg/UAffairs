@@ -22,7 +22,6 @@ import java.io.IOException;
  *      2、@ControllerAdvice(annotations=RestController.class)：扫描指定注解类型的Controller；
  *      3、@ControllerAdvice(basePackages={"com.aaa","com.bbb"})：扫描指定package下的Controller
  *
- * @author xuxueli 2017-08-01 21:51:21
  */
 @Component
 public class WebExceptionResolver implements HandlerExceptionResolver {
