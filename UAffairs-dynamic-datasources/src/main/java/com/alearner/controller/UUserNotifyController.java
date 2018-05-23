@@ -39,4 +39,10 @@ public class UUserNotifyController {
         logger.info("UUserNotifyController , getUUserNotifyByUserId , user -- " + user);
         return uUserNotifyService.getUUserNotifyByUserId(user);
     }
+
+    @RequestMapping(value = "/updateUserNotifyRead",method = RequestMethod.GET)
+    public long updateUserNotifyRead(@RequestParam("userId") int userId ,@RequestParam("notifyId") int notifyId){
+        logger.info("UUserNotifyController , updateUserNotifyRead , userId -- " + userId + "  notifyId -- "+notifyId);
+        return uUserNotifyService.updateUserNotifyRead(userId, notifyId);
+    }
 }

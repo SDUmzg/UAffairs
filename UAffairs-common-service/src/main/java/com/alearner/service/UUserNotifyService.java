@@ -13,4 +13,5 @@ public interface UUserNotifyService {
     long addUUserNotify(UUserNotify uUserNotify);
     UUserNotify getUUserNotifyById(int id);
     List<UUserNotify> getUUserNotifyByUserId(int user);
+    long updateUserNotifyRead(int userId ,int notifyId);
 }

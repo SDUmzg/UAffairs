@@ -46,4 +46,10 @@ public class UUserNotifyServiceImplTest {
             System.err.println(uUserNotify.toString());
         }
     }
+
+    @Test
+    public void updateUserNotifyRead() {
+        long affect_row = uUserNotifyService.updateUserNotifyRead(1,3);
+        System.err.println(affect_row);
+    }
 }

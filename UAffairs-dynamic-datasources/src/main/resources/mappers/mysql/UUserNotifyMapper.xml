@@ -15,4 +15,11 @@
         select * from u_user_notify where user_id = #{userId} and able_status=true order by create_time  desc  ;
     </select>
 
+    <update id="updateUserNotifyRead" parameterType="map">
+        UPDATE u_user_notify
+        SET read_status = true
+        WHERE user_id = #{userId}
+        and notify_id = #{notifyId}
+    </update>
+
 </mapper>

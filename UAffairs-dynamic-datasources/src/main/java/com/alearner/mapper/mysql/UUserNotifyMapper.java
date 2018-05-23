@@ -16,6 +16,5 @@ public interface UUserNotifyMapper {
     long addUUserNotify(UUserNotify uUserNotify);
     UUserNotify getUUserNotifyById(@Param("id")int id);
     List<UUserNotify> getUUserNotifyByUserId(@Param("userId")int userId);
-
-
+    long updateUserNotifyRead(@Param("userId") int userId ,@Param("notifyId") int notifyId);
 }

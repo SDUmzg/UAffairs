@@ -45,4 +45,11 @@ public class UUserNotifyServiceImpl implements UUserNotifyService{
         logger.info("UUserNotifyService , getUUserNotifyByUserId  , user -- " + user);
         return uUserNotifyMapper.getUUserNotifyByUserId(user);
     }
+
+    @Override
+    @MyDataSource(DataSourceType.Master)
+    public long updateUserNotifyRead(int userId, int notifyId) {
+        logger.info("UUserNotifyService , updateUserNotifyRead  , userId -- " + userId + "  notifyId -- "+notifyId);
+        return uUserNotifyMapper.updateUserNotifyRead(userId,notifyId);
+    }
 }

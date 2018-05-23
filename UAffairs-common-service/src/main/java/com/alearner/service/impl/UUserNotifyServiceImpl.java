@@ -52,4 +52,11 @@ public class UUserNotifyServiceImpl implements UUserNotifyService{
         logger.info("请求连接 url ："+url);
         return restTemplate.exchange(url, HttpMethod.GET,null,new ParameterizedTypeReference<List<UUserNotify>>(){}).getBody();
     }
+
+    @Override
+    public long updateUserNotifyRead(int userId, int notifyId) {
+        String url = "http://dynamic-datasources/u-user-notify/updateUserNotifyRead?userId="+userId+"&notifyId="+notifyId;
+        logger.info("请求连接 url ："+url);
+        return restTemplate.exchange(url, HttpMethod.GET,null,new ParameterizedTypeReference<Long>(){}).getBody();
+    }
 }
