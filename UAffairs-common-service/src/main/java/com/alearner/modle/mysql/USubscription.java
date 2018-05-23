@@ -3,6 +3,7 @@ package com.alearner.modle.mysql;
 import com.alearner.modle.common.BaseModel;
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 
 /**
  * @description:
@@ -11,6 +12,7 @@ import lombok.Setter;
  **/
 @Setter
 @Getter
+@ToString
 public class USubscription extends BaseModel{
     private int id;
     private int target;

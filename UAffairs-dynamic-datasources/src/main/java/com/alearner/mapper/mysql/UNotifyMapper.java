@@ -1,6 +1,7 @@
 package com.alearner.mapper.mysql;
 
 import com.alearner.entity.mysql.UNotify;
+import com.alearner.entity.mysql.USubscription;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Component;
 
@@ -16,4 +17,5 @@ public interface UNotifyMapper {
     long addUNotify(UNotify uNotify);
     UNotify getUNotifyById(@Param("id") int id);
     List<UNotify> getUNotifyByCreateTime(@Param("createTime") String createTime);
+    List<UNotify> getUNotifyBySubscription(USubscription uSubscription);
 }

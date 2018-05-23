@@ -2,6 +2,7 @@ package com.alearner.service.impl;
 
 import com.alearner.modle.common.SqlType;
 import com.alearner.modle.mysql.UNotify;
+import com.alearner.modle.mysql.USubscription;
 import com.alearner.service.UNotifyService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -9,6 +10,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+
+import java.util.List;
 
 import static org.junit.Assert.*;
 
@@ -49,5 +52,18 @@ public class UNotifyServiceImplTest {
 
     @Test
     public void getUNotifyById() {
+    }
+
+    @Test
+    public void getUNotifyBySubscription(){
+        USubscription uSubscription = new USubscription();
+        uSubscription.setTarget(1);
+        uSubscription.setTargetType("word");
+        uSubscription.setAction("上传");
+        uSubscription.setCreateTime("2018-05-21 23:55:06");
+        List<UNotify> uNotifyList = uNotifyService.getUNotifyBySubscription(uSubscription);
+        for (UNotify uNotify:uNotifyList){
+            System.err.println(uNotify.toString());
+        }
     }
 }

@@ -1,6 +1,7 @@
 package com.alearner.controller;
 
 import com.alearner.entity.mysql.UNotify;
+import com.alearner.entity.mysql.USubscription;
 import com.alearner.mapper.mysql.UNotifyMapper;
 import com.alearner.service.UNotifyService;
 import org.slf4j.Logger;
@@ -40,5 +41,10 @@ public class UNotifyController {
     public List<UNotify> getUNotifyByCreateTime(@RequestParam("createTime") String createTime){
         logger.info("UNotifyController,getUNotifyByCreateTime,createTime -- "+createTime);
         return uNotifyService.getUNotifyByCreateTime(createTime);
+    }
+
+    @RequestMapping(value = "/getUNotifyBySubscription", method = RequestMethod.POST)
+    public List<UNotify> getUNotifyBySubscription(@RequestBody USubscription uSubscription) {
+        return uNotifyService.getUNotifyBySubscription(uSubscription);
     }
 }

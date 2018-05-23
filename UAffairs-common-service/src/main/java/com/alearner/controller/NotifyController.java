@@ -48,16 +48,6 @@ public class NotifyController {
     @Autowired
     private XxlUtil xxlUtil;
 
-    /**
-     id int(11) AUTO_INCREMENT PRIMARY KEY COMMENT '主键',
-     content varchar(100) NOT NULL COMMENT '消息的内容',
-     type  tinyint(4) NOT NULL COMMENT '消息的类型，1: 公告 Announce，2: 提醒 Remind，3：信息 Message',
-     target int(11) NOT NULL COMMENT '目标的ID',
-     target_type varchar(20) NOT NULL COMMENT '目标的类型',
-     action  varchar(20) NOT NULL COMMENT '提醒信息的动作类型',
-     sender int(11) NOT NULL COMMENT '发送者的ID',
-     */
-
     @RequestMapping(value = "/createAnnounce",method = RequestMethod.POST)
     public ReturnT<Long> createAnnounce(@RequestParam(value = "content") String content,
                                         @RequestParam(value = "sender") int sender){
@@ -108,7 +98,7 @@ public class NotifyController {
         uNotify.setSender(sender);
         long notify_id = uNotifyService.addUNotify(uNotify);
         UUserNotify uUserNotify = new UUserNotify();
-        uUserNotify.setReadStatus(true);
+        uUserNotify.setReadStatus(false);
         uUserNotify.setUserId(sender);
         uUserNotify.setNotifyId((int)notify_id);
         long user_notify_id=uUserNotifyService.addUUserNotify(uUserNotify);
@@ -119,7 +109,7 @@ public class NotifyController {
     }
 
 
-    @RequestMapping(value = "/pullAnnounce")
+    @RequestMapping(value = "/pullAnnounce",method = RequestMethod.GET)
     public ReturnT pullAnnounce(HttpServletRequest request){
         logger.info("UNotifyController ,pullAnnounce ");
         XxlUser xxlUser = xxlUtil.getXxlUser(request);
@@ -136,14 +126,25 @@ public class NotifyController {
         return new ReturnT(uNotifyList);
     }
 
-
+    @RequestMapping(value = "/pullRemind",method = RequestMethod.GET)
     public ReturnT pullRemind(HttpServletRequest request){
         logger.info("NotifyController,pullRemind");
         XxlUser xxlUser = xxlUtil.getXxlUser(request);
-        int user_id = xxlUser.getUserid();
-        List<USubscription> uSubscriptionList = uSubscriptionService.getUSubscriptionByUserId(user_id);
-
-        return new ReturnT(0);
+        int userId = xxlUser.getUserid();
+        List<USubscription> uSubscriptionList = uSubscriptionService.getUSubscriptionByUserId(userId);
+        for (USubscription uSubscription:uSubscriptionList){
+            List<UNotify> uNotifyListTemp = uNotifyService.getUNotifyBySubscription(uSubscription);
+            for (UNotify uNotify:uNotifyListTemp){
+                UUserNotify tempUUserNotify = new UUserNotify();
+                tempUUserNotify.setReadStatus(true);
+                tempUUserNotify.setUserId(userId);
+                tempUUserNotify.setNotifyId(uNotify.getId());
+                uUserNotifyService.addUUserNotify(tempUUserNotify);
+            }
+        }
+        return new ReturnT(uSubscriptionList);
     }
+
+
 
 }

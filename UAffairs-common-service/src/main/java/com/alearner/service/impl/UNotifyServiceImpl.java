@@ -2,6 +2,7 @@ package com.alearner.service.impl;
 
 
 import com.alearner.modle.mysql.UNotify;
+import com.alearner.modle.mysql.USubscription;
 import com.alearner.service.UNotifyService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -54,5 +55,16 @@ public class UNotifyServiceImpl implements UNotifyService{
         logger.info("请求连接 id ："+createTime);
         return restTemplate.exchange(url, HttpMethod.GET,null,new ParameterizedTypeReference<List<UNotify>>(){}).getBody();
 
+    }
+
+    @Override
+    public List<UNotify> getUNotifyBySubscription(USubscription uSubscription) {
+        String url = "http://dynamic-datasources/u-notify/getUNotifyBySubscription";
+        logger.info("请求连接 url ："+url);
+        logger.info("名称 ："+ uSubscription.toString());
+        HttpHeaders headers = new HttpHeaders();
+        headers.setContentType(MediaType.APPLICATION_JSON_UTF8);
+        HttpEntity<Object> requestEntity = new HttpEntity<Object>(uSubscription,headers);
+        return restTemplate.exchange(url, HttpMethod.POST, requestEntity, new ParameterizedTypeReference<List<UNotify>>(){}).getBody();
     }
 }

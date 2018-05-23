@@ -1,6 +1,7 @@
 package com.alearner.service.impl;
 
 import com.alearner.entity.mysql.UNotify;
+import com.alearner.entity.mysql.USubscription;
 import com.alearner.mapper.mysql.UNotifyMapper;
 import com.alearner.service.UNotifyService;
 import com.alearner.util.DataSourceType;
@@ -40,7 +41,14 @@ public class UNotifyServiceImpl implements UNotifyService{
     }
 
     @Override
+    @MyDataSource(DataSourceType.Master)
     public List<UNotify> getUNotifyByCreateTime(String createTime) {
         return uNotifyMapper.getUNotifyByCreateTime(createTime);
+    }
+
+    @Override
+    @MyDataSource(DataSourceType.Master)
+    public List<UNotify> getUNotifyBySubscription(USubscription uSubscription) {
+        return uNotifyMapper.getUNotifyBySubscription(uSubscription);
     }
 }
