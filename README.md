@@ -33,5 +33,5 @@
 | uaffairs-febs-client      | febs-client      |   8150    |
 | uaffairs-xxlsso-server    | xxlsso-server    |   8160    |
 | uaffairs-web-client       | xxlsso-web       |   8170    |
-
+| uaffairs-dynamic-datasources| dynamic-datasources | 8180 |
 
