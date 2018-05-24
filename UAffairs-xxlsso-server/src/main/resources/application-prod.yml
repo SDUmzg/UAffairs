@@ -1,0 +1,45 @@
+server:
+  port: 8160
+#  context-path: /xxl-sso-server
+eureka:
+  client:
+    serviceUrl:
+#      defaultZone: http://localhost:8100/eureka/
+      defaultZone: http://114.116.8.202:8108/eureka/
+  instance:
+    prefer-ip-address: true
+    instance-id: ${spring.cloud.client.ipAddress}:${server.port}
+
+spring:
+  ### freemarker
+  freemarker:
+    request-context-attribute: request
+    cache: false
+
+  ### resource (default: /**  + classpath:/static/ )
+  mvc:
+    static-path-pattern: /static/**
+  resources:
+    static-locations: classpath:/static/
+
+  ### jdbc
+  datasource:
+    url: jdbc:mysql://116.196.105.245:3306/uaffairs?useUnicode=true&characterEncoding=utf8&useSSL=false
+    username: myroot
+    password: Mzg...8535933570
+    driver-class-name: com.mysql.jdbc.Driver
+    max-idle: 10
+    max-wait: 10000
+    min-idle: 5
+    initial-size: 5
+
+## mybatis
+mybatis:
+  mapper-locations: classpath:/mybatis-mapper/*Mapper.xml
+  type-aliases-package: com.xxl.sso.server.model
+
+### redis
+redis:
+  address: 140.143.141.204:6379
+  password: 1666188122
+
