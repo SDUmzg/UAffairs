@@ -1,0 +1,37 @@
+server:
+  port: 8180
+eureka:
+  client:
+    serviceUrl:
+#      defaultZone: http://localhost:8100/eureka/
+      defaultZone: http://114.116.8.202:8108/eureka/
+  instance:
+    prefer-ip-address: true
+    #ip-address: 字段需要指定
+
+##多数据源
+datasource:
+  #主库
+  master:
+    url: jdbc:mysql://116.196.105.245:3306/uaffairs?useUnicode=true&characterEncoding=utf-8&useSSL=false&allowMultiQueries=true
+    jdbcUrl: jdbc:mysql://116.196.105.245:3306/testdb?useUnicode=true&characterEncoding=utf-8&useSSL=false&allowMultiQueries=true
+    username: myroot
+    password: Mzg...8535933570
+    driver-class-name: com.mysql.jdbc.Driver
+  #从库
+  slave:
+    #并非url而是jdbcUrl(因为这个在获取数据源时一直报错，看了DataSource的属性才知道是jdbcUrl)
+    url: jdbc:postgresql://140.143.141.204:5432/testdb
+    jdbcUrl: jdbc:140.143.141.204://localhost:5432/testdb
+    username: postgres
+    password: 1666188122
+    driver-class-name: org.postgresql.Driver
+
+
+#显示输出mybatis的执行sql
+logging:
+  level:
+    com:
+      alearner:
+        mapper:
+          mysql: debug

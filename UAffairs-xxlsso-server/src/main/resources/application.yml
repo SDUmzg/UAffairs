@@ -3,7 +3,7 @@ spring:
     name: xxlsso-server
   ## 开发/测试/生产环境分别对应dev/test/prod，可以自由定义
   profiles:
-    active: prod
+    active: dev
 
 
 
