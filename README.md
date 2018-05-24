@@ -23,15 +23,15 @@
 	distribution and submit
 	
 ### 各模块对应的服务名与端口号
-| File Name                 | Service Name     |  Port     |
-| --------                  | --------         | --------  |
-| uaffairs-server-discovery |                  |   8100    |
-| uaffairs-config-center    | config-server    |   8110    |
-| uaffairs-hbase-client     | hbase-client     |   8120    |
-| uaffairs-common-service   | common-service   |   8130    |
-| uaffairs-router-gateway   | service-zuul     |   8140    |
-| uaffairs-febs-client      | febs-client      |   8150    |
-| uaffairs-xxlsso-server    | xxlsso-server    |   8160    |
-| uaffairs-web-client       | xxlsso-web       |   8170    |
-| uaffairs-dynamic-datasources| dynamic-datasources | 8180 |
+| File Name                 | Service Name     |  Port     |Features|
+| --------                  | --------         | --------  |--------  |
+| uaffairs-server-discovery |                  |   8100    |服务注册与发现模块|
+| uaffairs-config-center    | config-server    |   8110    |项目配置中心|
+| uaffairs-hbase-client     | hbase-client     |   8120    |项目对hbase读取的模块|
+| uaffairs-common-service   | common-service   |   8130    |通用业务模块|
+| uaffairs-router-gateway   | service-zuul     |   8140    |路由网关模块|
+| uaffairs-febs-client      | febs-client      |   8150    |权限管理模块|
+| uaffairs-xxlsso-server    | xxlsso-server    |   8160    |授权服务中心模块|
+| uaffairs-web-client       | xxlsso-web       |   8170    |网页客户端模块|
+| uaffairs-dynamic-datasources| dynamic-datasources | 8180 |动态数据源抽取模块|
 
