@@ -22,7 +22,7 @@
 13. **Homework system**
 	distribution and submit
 	
-### 各模块对应的服务名与端口号
+### 各模块对应的服务名与端口号及其功能
 | File Name                 | Service Name     |  Port     |Features|
 | --------                  | --------         | --------  |--------  |
 | uaffairs-server-discovery |                  |   8100    |服务注册与发现模块|
